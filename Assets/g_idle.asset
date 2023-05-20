@@ -1,0 +1,869 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78c6efa51b78674bac5fa1e7f03afe6, type: 3}
+  m_Name: g_idle
+  m_EditorClassIdentifier: 
+  isHuman: 1
+  haveRootT: 1
+  rootT: {x: 0.005718487, y: 1.0955455, z: 0.033632964}
+  haveRootQ: 1
+  rootQ: {x: 0, y: 0, z: 0, w: 1}
+  musclePropertyNames:
+  - Spine Front-Back
+  - Spine Left-Right
+  - Spine Twist Left-Right
+  - Chest Front-Back
+  - Chest Left-Right
+  - Chest Twist Left-Right
+  - UpperChest Front-Back
+  - UpperChest Left-Right
+  - UpperChest Twist Left-Right
+  - Neck Nod Down-Up
+  - Neck Tilt Left-Right
+  - Neck Turn Left-Right
+  - Head Nod Down-Up
+  - Head Tilt Left-Right
+  - Head Turn Left-Right
+  - Left Eye Down-Up
+  - Left Eye In-Out
+  - Right Eye Down-Up
+  - Right Eye In-Out
+  - Jaw Close
+  - Jaw Left-Right
+  - Left Upper Leg Front-Back
+  - Left Upper Leg In-Out
+  - Left Upper Leg Twist In-Out
+  - Left Lower Leg Stretch
+  - Left Lower Leg Twist In-Out
+  - Left Foot Up-Down
+  - Left Foot Twist In-Out
+  - Left Toes Up-Down
+  - Right Upper Leg Front-Back
+  - Right Upper Leg In-Out
+  - Right Upper Leg Twist In-Out
+  - Right Lower Leg Stretch
+  - Right Lower Leg Twist In-Out
+  - Right Foot Up-Down
+  - Right Foot Twist In-Out
+  - Right Toes Up-Down
+  - Left Shoulder Down-Up
+  - Left Shoulder Front-Back
+  - Left Arm Down-Up
+  - Left Arm Front-Back
+  - Left Arm Twist In-Out
+  - Left Forearm Stretch
+  - Left Forearm Twist In-Out
+  - Left Hand Down-Up
+  - Left Hand In-Out
+  - Right Shoulder Down-Up
+  - Right Shoulder Front-Back
+  - Right Arm Down-Up
+  - Right Arm Front-Back
+  - Right Arm Twist In-Out
+  - Right Forearm Stretch
+  - Right Forearm Twist In-Out
+  - Right Hand Down-Up
+  - Right Hand In-Out
+  - LeftHand.Thumb.1 Stretched
+  - LeftHand.Thumb.Spread
+  - LeftHand.Thumb.2 Stretched
+  - LeftHand.Thumb.3 Stretched
+  - LeftHand.Index.1 Stretched
+  - LeftHand.Index.Spread
+  - LeftHand.Index.2 Stretched
+  - LeftHand.Index.3 Stretched
+  - LeftHand.Middle.1 Stretched
+  - LeftHand.Middle.Spread
+  - LeftHand.Middle.2 Stretched
+  - LeftHand.Middle.3 Stretched
+  - LeftHand.Ring.1 Stretched
+  - LeftHand.Ring.Spread
+  - LeftHand.Ring.2 Stretched
+  - LeftHand.Ring.3 Stretched
+  - LeftHand.Little.1 Stretched
+  - LeftHand.Little.Spread
+  - LeftHand.Little.2 Stretched
+  - LeftHand.Little.3 Stretched
+  - RightHand.Thumb.1 Stretched
+  - RightHand.Thumb.Spread
+  - RightHand.Thumb.2 Stretched
+  - RightHand.Thumb.3 Stretched
+  - RightHand.Index.1 Stretched
+  - RightHand.Index.Spread
+  - RightHand.Index.2 Stretched
+  - RightHand.Index.3 Stretched
+  - RightHand.Middle.1 Stretched
+  - RightHand.Middle.Spread
+  - RightHand.Middle.2 Stretched
+  - RightHand.Middle.3 Stretched
+  - RightHand.Ring.1 Stretched
+  - RightHand.Ring.Spread
+  - RightHand.Ring.2 Stretched
+  - RightHand.Ring.3 Stretched
+  - RightHand.Little.1 Stretched
+  - RightHand.Little.Spread
+  - RightHand.Little.2 Stretched
+  - RightHand.Little.3 Stretched
+  muscleValues:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - -0.4024485
+  - 1.0809976
+  - 0.10176394
+  - -0.12466134
+  - -0.6289774
+  - -0.52655816
+  - -0.39381945
+  - 0
+  - -0.34282357
+  - 1.1987857
+  - 0.20196791
+  - 0.03696696
+  - -0.67725354
+  - -0.4035787
+  - -0.68489856
+  - 0
+  - 0
+  - 0
+  - 0.7288699
+  - -0.12594247
+  - -0.000011921715
+  - 1.001171
+  - -0.23257862
+  - -0.50761604
+  - 0.6783098
+  - 0
+  - 0
+  - 0.6781331
+  - -0.23687577
+  - 0.000018478702
+  - 1.0011693
+  - -0.2735179
+  - -0.44016334
+  - 0.90373534
+  - -0.68766046
+  - 0.47547805
+  - 0.6458924
+  - 0.6458923
+  - 0.66684914
+  - -0.46732557
+  - 0.8109993
+  - 0.8109993
+  - 0.6679698
+  - -0.6108283
+  - 0.8116841
+  - 0.8116841
+  - 0.6679698
+  - -0.6108312
+  - 0.8116841
+  - 0.8116841
+  - 0.6679698
+  - -0.45739275
+  - 0.8116841
+  - 0.8116841
+  - -0.6876606
+  - 0.47547802
+  - 0.6458924
+  - 0.64589167
+  - 0.66684914
+  - -0.46732557
+  - 0.81099916
+  - 0.81099916
+  - 0.6679698
+  - -0.6108283
+  - 0.8116841
+  - 0.8116841
+  - 0.66796976
+  - -0.61083114
+  - 0.8116841
+  - 0.8116841
+  - 0.6679698
+  - -0.45739275
+  - 0.8116841
+  - 0
+  tdofIndices: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001000000011000000120000001300000014000000
+  tdofValues:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  ikIndices: 00000000010000000200000003000000
+  ikValues:
+  - position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+  - position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+  - position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+  - position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+  transformPaths:
+  - 
+  - Root
+  - Root/J_Bip_C_Hips
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Sec_L_Bust1
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Sec_L_Bust1/J_Sec_L_Bust2
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Sec_R_Bust1
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Sec_R_Bust1/J_Sec_R_Bust2
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Adj_L_FaceEye
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Adj_R_FaceEye
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_01
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_01/J_Sec_Hair2_01
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_01/J_Sec_Hair2_01/J_Sec_Hair3_01
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_02
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_02/J_Sec_Hair2_02
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_02/J_Sec_Hair2_02/J_Sec_Hair3_02
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_03
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_03/J_Sec_Hair2_03
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_03/J_Sec_Hair2_03/J_Sec_Hair3_03
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_04
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_04/J_Sec_Hair2_04
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_04/J_Sec_Hair2_04/J_Sec_Hair3_04
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_05
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_05/J_Sec_Hair2_05
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_05/J_Sec_Hair2_05/J_Sec_Hair3_05
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_06
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_06/J_Sec_Hair2_06
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_06/J_Sec_Hair2_06/J_Sec_Hair3_06
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_07
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_07/J_Sec_Hair2_07
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_07/J_Sec_Hair2_07/J_Sec_Hair3_07
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_08
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_08/J_Sec_Hair2_08
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_08/J_Sec_Hair2_08/J_Sec_Hair3_08
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_09
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_09/J_Sec_Hair2_09
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_09/J_Sec_Hair2_09/J_Sec_Hair3_09
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_10
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_10/J_Sec_Hair2_10
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_10/J_Sec_Hair2_10/J_Sec_Hair3_10
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_11
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_11/J_Sec_Hair2_11
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_11/J_Sec_Hair2_11/J_Sec_Hair3_11
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_12
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_12/J_Sec_Hair2_12
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_12/J_Sec_Hair2_12/J_Sec_Hair3_12
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_13
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_13/J_Sec_Hair2_13
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_13/J_Sec_Hair2_13/J_Sec_Hair3_13
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_14
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_14/J_Sec_Hair2_14
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_14/J_Sec_Hair2_14/J_Sec_Hair3_14
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_15
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_15/J_Sec_Hair2_15
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_15/J_Sec_Hair2_15/J_Sec_Hair3_15
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_16
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_16/J_Sec_Hair2_16
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_C_Neck/J_Bip_C_Head/J_Sec_Hair1_16/J_Sec_Hair2_16/J_Sec_Hair3_16
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand/J_Bip_L_Index1
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand/J_Bip_L_Index1/J_Bip_L_Index2
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand/J_Bip_L_Index1/J_Bip_L_Index2/J_Bip_L_Index3
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand/J_Bip_L_Little1
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand/J_Bip_L_Little1/J_Bip_L_Little2
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand/J_Bip_L_Little1/J_Bip_L_Little2/J_Bip_L_Little3
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand/J_Bip_L_Middle1
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand/J_Bip_L_Middle1/J_Bip_L_Middle2
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand/J_Bip_L_Middle1/J_Bip_L_Middle2/J_Bip_L_Middle3
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand/J_Bip_L_Ring1
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand/J_Bip_L_Ring1/J_Bip_L_Ring2
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand/J_Bip_L_Ring1/J_Bip_L_Ring2/J_Bip_L_Ring3
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand/J_Bip_L_Thumb1
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand/J_Bip_L_Thumb1/J_Bip_L_Thumb2
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_L_Shoulder/J_Bip_L_UpperArm/J_Bip_L_LowerArm/J_Bip_L_Hand/J_Bip_L_Thumb1/J_Bip_L_Thumb2/J_Bip_L_Thumb3
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand/J_Bip_R_Index1
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand/J_Bip_R_Index1/J_Bip_R_Index2
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand/J_Bip_R_Index1/J_Bip_R_Index2/J_Bip_R_Index3
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand/J_Bip_R_Little1
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand/J_Bip_R_Little1/J_Bip_R_Little2
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand/J_Bip_R_Little1/J_Bip_R_Little2/J_Bip_R_Little3
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand/J_Bip_R_Middle1
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand/J_Bip_R_Middle1/J_Bip_R_Middle2
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand/J_Bip_R_Middle1/J_Bip_R_Middle2/J_Bip_R_Middle3
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand/J_Bip_R_Ring1
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand/J_Bip_R_Ring1/J_Bip_R_Ring2
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand/J_Bip_R_Ring1/J_Bip_R_Ring2/J_Bip_R_Ring3
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand/J_Bip_R_Thumb1
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand/J_Bip_R_Thumb1/J_Bip_R_Thumb2
+  - Root/J_Bip_C_Hips/J_Bip_C_Spine/J_Bip_C_Chest/J_Bip_C_UpperChest/J_Bip_R_Shoulder/J_Bip_R_UpperArm/J_Bip_R_LowerArm/J_Bip_R_Hand/J_Bip_R_Thumb1/J_Bip_R_Thumb2/J_Bip_R_Thumb3
+  - Root/J_Bip_C_Hips/J_Bip_L_UpperLeg
+  - Root/J_Bip_C_Hips/J_Bip_L_UpperLeg/J_Bip_L_LowerLeg
+  - Root/J_Bip_C_Hips/J_Bip_L_UpperLeg/J_Bip_L_LowerLeg/J_Sec_L_CoatSkirtBack_01
+  - Root/J_Bip_C_Hips/J_Bip_L_UpperLeg/J_Bip_L_LowerLeg/J_Sec_L_CoatSkirtBack_01/J_Sec_L_CoatSkirtBack_end_01
+  - Root/J_Bip_C_Hips/J_Bip_L_UpperLeg/J_Bip_L_LowerLeg/J_Sec_L_CoatSkirtFront_01
+  - Root/J_Bip_C_Hips/J_Bip_L_UpperLeg/J_Bip_L_LowerLeg/J_Sec_L_CoatSkirtFront_01/J_Sec_L_CoatSkirtFront_end_01
+  - Root/J_Bip_C_Hips/J_Bip_L_UpperLeg/J_Bip_L_LowerLeg/J_Sec_L_CoatSkirtSide1_01
+  - Root/J_Bip_C_Hips/J_Bip_L_UpperLeg/J_Bip_L_LowerLeg/J_Sec_L_CoatSkirtSide1_01/J_Sec_L_CoatSkirtSide2_01
+  - Root/J_Bip_C_Hips/J_Bip_L_UpperLeg/J_Bip_L_LowerLeg/J_Sec_L_CoatSkirtSide1_01/J_Sec_L_CoatSkirtSide2_01/J_Sec_L_CoatSkirtSide2_end_01
+  - Root/J_Bip_C_Hips/J_Bip_L_UpperLeg/J_Bip_L_LowerLeg/J_Bip_L_Foot
+  - Root/J_Bip_C_Hips/J_Bip_L_UpperLeg/J_Bip_L_LowerLeg/J_Bip_L_Foot/J_Bip_L_ToeBase
+  - Root/J_Bip_C_Hips/J_Bip_R_UpperLeg
+  - Root/J_Bip_C_Hips/J_Bip_R_UpperLeg/J_Bip_R_LowerLeg
+  - Root/J_Bip_C_Hips/J_Bip_R_UpperLeg/J_Bip_R_LowerLeg/J_Sec_R_CoatSkirtBack_01
+  - Root/J_Bip_C_Hips/J_Bip_R_UpperLeg/J_Bip_R_LowerLeg/J_Sec_R_CoatSkirtBack_01/J_Sec_R_CoatSkirtBack_end_01
+  - Root/J_Bip_C_Hips/J_Bip_R_UpperLeg/J_Bip_R_LowerLeg/J_Sec_R_CoatSkirtFront_01
+  - Root/J_Bip_C_Hips/J_Bip_R_UpperLeg/J_Bip_R_LowerLeg/J_Sec_R_CoatSkirtFront_01/J_Sec_R_CoatSkirtFront_end_01
+  - Root/J_Bip_C_Hips/J_Bip_R_UpperLeg/J_Bip_R_LowerLeg/J_Sec_R_CoatSkirtSide1_01
+  - Root/J_Bip_C_Hips/J_Bip_R_UpperLeg/J_Bip_R_LowerLeg/J_Sec_R_CoatSkirtSide1_01/J_Sec_R_CoatSkirtSide2_01
+  - Root/J_Bip_C_Hips/J_Bip_R_UpperLeg/J_Bip_R_LowerLeg/J_Sec_R_CoatSkirtSide1_01/J_Sec_R_CoatSkirtSide2_01/J_Sec_R_CoatSkirtSide2_end_01
+  - Root/J_Bip_C_Hips/J_Bip_R_UpperLeg/J_Bip_R_LowerLeg/J_Bip_R_Foot
+  - Root/J_Bip_C_Hips/J_Bip_R_UpperLeg/J_Bip_R_LowerLeg/J_Bip_R_Foot/J_Bip_R_ToeBase
+  - Face
+  - Body
+  - Hair
+  - secondary
+  transformValues:
+  - position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0, y: 0, z: 0}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.0032503372, y: 0.48503423, z: -0.017251128}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 3.7233375e-32, y: 0.030281425, z: 0.0072794147}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -1.2611541e-17, y: 0.06572187, z: 0.0017736154}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 1.820348e-17, y: 0.06259954, z: -0.0085176425}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.053768408, y: -0.007256508, z: 0.06897974}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.026108835, y: 0.0062452555, z: 0.050756156}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.053768408, y: -0.007256508, z: 0.06897974}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.026108835, y: 0.0062452555, z: 0.050756156}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 5.712889e-17, y: 0.0769313, z: -0.022305828}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 9.2985994e-11, y: 0.048272014, z: 0.0055859126}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.009134767, y: 0.039310336, z: 0.014790945}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.009134758, y: 0.039310336, z: 0.014790952}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.08547772, y: 0.0581491, z: 0.05832357}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.010203786, y: -0.04066813, z: 0.0021609068}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.020780895, y: -0.034052014, z: 0.009917006}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.08436063, y: 0.05249989, z: 0.059054144}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.009017974, y: -0.03816843, z: 0.0013046861}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.02084953, y: -0.030902386, z: 0.010042608}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.00058724027, y: 0.13713765, z: 0.10862715}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.0045496626, y: -0.038422823, z: 0.0026420355}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.012538734, y: -0.03556776, z: -0.0070120394}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.053363737, y: 0.14206731, z: 0.08859257}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.011096422, y: -0.03888595, z: -0.0021363497}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.0017523393, y: -0.04011941, z: -0.005207047}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.07392865, y: 0.12745261, z: 0.07400758}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.0051943734, y: -0.046008587, z: -0.00088341534}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.017935965, y: -0.04056716, z: 0.005721204}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.103689805, y: 0.061961412, z: 0.023974996}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.01062955, y: -0.044204712, z: 0.0009106174}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.022163235, y: -0.03813052, z: 0.008984987}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.10376295, y: 0.061930776, z: 0.023948487}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.010613009, y: -0.043946147, z: 0.000972379}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.022019506, y: -0.03836775, z: 0.008364204}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.0037398508, y: 0.06477797, z: -0.093109615}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.0063994946, y: -0.10154569, z: 0.0035614073}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.004876036, y: -0.10037351, z: -0.019163951}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.0999564, y: 0.09508824, z: -0.03972425}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.0056224316, y: -0.09969568, z: -0.022071302}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.025778614, y: -0.09607375, z: -0.020590384}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.09911806, y: 0.11508131, z: -0.034480628}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.0055802166, y: -0.10472095, z: -0.0234892}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.020358227, y: -0.10207474, z: -0.02427568}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.046386234, y: 0.111300826, z: 0.04107817}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.0060866363, y: -0.022600353, z: 0.006808374}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.0019434802, y: -0.023876727, z: 0.004647173}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.052980714, y: 0.04795158, z: 0.03611254}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.0010415539, y: -0.020274878, z: 0.00031759217}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.006492749, y: -0.019028306, z: 0.00050091743}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.05300178, y: 0.03992164, z: 0.035988696}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.0018075779, y: -0.017138302, z: 0.0005937405}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.0074483193, y: -0.015212715, z: 0.0019544624}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.0015114938, y: 0.08608019, z: 0.06779896}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.00021716068, y: -0.0242427, z: 0.0018988103}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.0021155097, y: -0.023855627, z: -0.0038721561}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.048573945, y: 0.069672644, z: 0.04617525}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.00068860874, y: -0.024507344, z: -0.0009407215}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.007515546, y: -0.023228526, z: -0.0007341504}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.04907372, y: 0.064950705, z: 0.046196993}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.00044069067, y: -0.022361636, z: -0.00044132024}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.008429315, y: -0.020574927, z: 0.000031586736}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.013023876, y: 0.06146109, z: -0.017428204}
+    rotation: {x: 0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.06526284, y: -0.009286702, z: 0}
+    rotation: {x: -0.17382455, y: 0.27625614, z: -0.2734006, w: 0.9048313}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.11553382, y: 0, z: 0.000000007450581}
+    rotation: {x: 0.09120567, y: -0.00087291, z: -0.00007523969, w: 0.9958317}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.13131917, y: 0.0000014305115, z: 0.0002299361}
+    rotation: {x: 0.08398132, y: -0.25067517, z: 0.31676415, w: 0.9109169}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.038086772, y: 0.0042925477, z: 0.011432974}
+    rotation: {x: 0.005826034, y: 0.000000006868502, z: 0.000113147704, w: 0.9999831}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.019346297, y: 0, z: -0.0003758557}
+    rotation: {x: 0.011339831, y: 0.004109137, z: 0.00048957835, w: 0.99992716}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.01189971, y: -0.0003439784, z: -0.00045890547}
+    rotation: {x: 0.011339831, y: 0.004109137, z: 0.00048957835, w: 0.99992716}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.03553796, y: 0.0042925477, z: -0.016969472}
+    rotation: {x: -0.000000257045, y: 0.000000037423593, z: -0.00000000891789, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.018288076, y: 0, z: 0.000000014901161}
+    rotation: {x: 0.00000021036053, y: 0.000000069417624, z: -0.000000059604595, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.010540187, y: 0.000000059604645, z: -0.000000007450581}
+    rotation: {x: 0.00000021036053, y: 0.000000069417624, z: -0.000000059604595, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.03860557, y: 0.0042926073, z: 0.0011905804}
+    rotation: {x: 0.0000000372529, y: 0.00000007948021, z: 0.000000028725633, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.021553516, y: -0.000000059604645, z: 0.0000000037252903}
+    rotation: {x: 0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.013296843, y: 0.000000059604645, z: 0}
+    rotation: {x: 0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.038165808, y: 0.0042926073, z: -0.007903258}
+    rotation: {x: -0.00000003445893, y: 0.000000108033404, z: 0.000000029802319, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.019993663, y: 0, z: 0}
+    rotation: {x: 0.00000019216361, y: 0.000000063414, z: -0.000000029802289, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.011538267, y: 0, z: -0.000000007450581}
+    rotation: {x: 0.00000019216361, y: 0.000000063414, z: -0.000000029802289, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.0020495355, y: -0.0058211684, z: 0.009284777}
+    rotation: {x: -0.057261705, y: -0.0033388431, z: 0.048987605, w: 0.997151}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.0205746, y: -0.0011996627, z: 0.017601628}
+    rotation: {x: -0.0059254165, y: -0.00022908299, z: 0.0029831456, w: 0.999978}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.0131239295, y: -0.0005642772, z: 0.010265712}
+    rotation: {x: -0.005925357, y: -0.00022908299, z: 0.0029831456, w: 0.999978}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.013023876, y: 0.06146109, z: -0.017428204}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.06526284, y: -0.009286702, z: 0}
+    rotation: {x: -0.19109388, y: -0.35592994, z: 0.22958507, w: 0.8854873}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.11553382, y: 0, z: 0.000000007450581}
+    rotation: {x: 0.10719112, y: 0.00087043643, z: 0.00008945912, w: 0.99423814}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.13131917, y: 0.0000014305115, z: 0.0002299361}
+    rotation: {x: 0.098013654, y: 0.3262867, z: -0.2551479, w: 0.9048922}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.038086772, y: 0.0042925477, z: 0.011432974}
+    rotation: {x: -0.005826035, y: 0.0000000074505793, z: 0.00011315544, w: -0.9999831}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.019346297, y: 0, z: -0.0003758557}
+    rotation: {x: -0.011339831, y: 0.004109138, z: 0.00048958196, w: -0.99992716}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.01189971, y: -0.0003439784, z: -0.00045890547}
+    rotation: {x: -0.011339831, y: 0.004109138, z: 0.00048958196, w: -0.99992716}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.03553796, y: 0.0042925477, z: -0.016969472}
+    rotation: {x: 0.00000025275074, y: 0.0000000372529, z: -0.000000008917903, w: -1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.018288076, y: 0, z: 0.000000014901161}
+    rotation: {x: -0.00000021036051, y: 0.000000069417624, z: -0.000000059604595, w: -1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.010540187, y: 0.000000059604645, z: -0.000000007450581}
+    rotation: {x: -7.1054274e-15, y: -2.842171e-14, z: 0.31337747, w: -0.9496287}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.03860557, y: 0.0042926073, z: 0.0011905804}
+    rotation: {x: -0.00000003613885, y: 0.00000007450579, z: -0.0000000010766777, w: -1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.021553516, y: -0.000000059604645, z: 0.0000000037252903}
+    rotation: {x: -0, y: -0, z: -0, w: -1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.013296843, y: 0.000000059604645, z: 0}
+    rotation: {x: -0, y: -0, z: -0, w: -1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.038165808, y: 0.0042926073, z: -0.007903258}
+    rotation: {x: 0.000000033527606, y: 0.00000011175868, z: -0, w: -1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.019993663, y: 0, z: 0}
+    rotation: {x: -0.00000019216361, y: 0.000000063414, z: -0.000000029802289, w: -1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.011538267, y: 0, z: -0.000000007450581}
+    rotation: {x: -0.00000019216361, y: 0.000000063414, z: -0.000000029802289, w: -1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.0020495355, y: -0.0058211684, z: 0.009284777}
+    rotation: {x: 0.057261698, y: -0.003338858, z: 0.04898762, w: -0.9971511}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.0205746, y: -0.0011996627, z: 0.017601628}
+    rotation: {x: 0.0059254174, y: -0.00022908671, z: 0.0029831568, w: -0.999978}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.0131239295, y: -0.0005642772, z: 0.010265712}
+    rotation: {x: 0.0059253266, y: -0.00022933629, z: 0.0029831263, w: -0.999978}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.0448695, y: -0.023130357, z: -0.002126257}
+    rotation: {x: -0.4807735, y: -0.14265268, z: -0.48977116, w: 0.71318394}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.000000007450581, y: -0.20419204, z: -0.0042731212}
+    rotation: {x: 0.68042046, y: 0.14355265, z: 0.20070164, w: 0.6900287}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.01579199, y: -0.07939997, z: -0.117323264}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.0066992603, y: -0.08685246, z: -0.013875306}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.010735001, y: -0.092784256, z: 0.087054566}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.006221, y: -0.08718985, z: 0.004791349}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.083913915, y: 0.012424439, z: -0.0002511628}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.013462082, y: -0.09465575, z: -0.0041138176}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.010457143, y: -0.08709228, z: -0.0039111916}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0, y: -0.23949441, z: -0.01438919}
+    rotation: {x: -0.1952496, y: 0.2331222, z: 0.16670664, w: 0.9379449}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0, y: -0.041050345, z: 0.07206127}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.0448695, y: -0.023130357, z: -0.002126257}
+    rotation: {x: -0.4437161, y: 0.17435504, z: 0.534668, w: 0.69774383}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: -0.000000007450581, y: -0.20419204, z: -0.0042731212}
+    rotation: {x: 0.5909563, y: -0.15463103, z: -0.20638862, w: 0.76437145}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.015791979, y: -0.079399794, z: -0.117323264}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.006699264, y: -0.08685246, z: -0.013875306}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.010734983, y: -0.09278405, z: 0.087054566}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.0062210076, y: -0.08718988, z: 0.0047913417}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.0839139, y: 0.012424588, z: -0.0002511628}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.013462082, y: -0.09465575, z: -0.0041138195}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0.010457143, y: -0.08709234, z: -0.003911197}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0, y: -0.23949441, z: -0.01438919}
+    rotation: {x: -0.12030774, y: -0.2515667, z: -0.23002277, w: 0.9323786}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0, y: -0.041050345, z: 0.07206127}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0, y: 0, z: -0}
+    rotation: {x: -0, y: -0, z: 0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0, y: 0, z: -0}
+    rotation: {x: -0, y: -0, z: 0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0, y: 0, z: -0}
+    rotation: {x: -0, y: -0, z: 0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  - position: {x: 0, y: 0, z: -0}
+    rotation: {x: -0, y: -0, z: 0, w: 1}
+    scale: {x: 1, y: 1, z: 1}
+  blendShapePaths:
+  - Face
+  blendShapeValues:
+  - names:
+    - Fcl_ALL_Neutral
+    - Fcl_ALL_Angry
+    - Fcl_ALL_Fun
+    - Fcl_ALL_Joy
+    - Fcl_ALL_Sorrow
+    - Fcl_ALL_Surprised
+    - Fcl_BRW_Angry
+    - Fcl_BRW_Fun
+    - Fcl_BRW_Joy
+    - Fcl_BRW_Sorrow
+    - Fcl_BRW_Surprised
+    - Fcl_EYE_Natural
+    - Fcl_EYE_Angry
+    - Fcl_EYE_Close
+    - Fcl_EYE_Close_R
+    - Fcl_EYE_Close_L
+    - Fcl_EYE_Fun
+    - Fcl_EYE_Joy
+    - Fcl_EYE_Joy_R
+    - Fcl_EYE_Joy_L
+    - Fcl_EYE_Sorrow
+    - Fcl_EYE_Surprised
+    - Fcl_EYE_Spread
+    - Fcl_EYE_Iris_Hide
+    - Fcl_EYE_Highlight_Hide
+    - Fcl_MTH_Close
+    - Fcl_MTH_Up
+    - Fcl_MTH_Down
+    - Fcl_MTH_Angry
+    - Fcl_MTH_Small
+    - Fcl_MTH_Large
+    - Fcl_MTH_Neutral
+    - Fcl_MTH_Fun
+    - Fcl_MTH_Joy
+    - Fcl_MTH_Sorrow
+    - Fcl_MTH_Surprised
+    - Fcl_MTH_SkinFung
+    - Fcl_MTH_SkinFung_R
+    - Fcl_MTH_SkinFung_L
+    - Fcl_MTH_A
+    - Fcl_MTH_I
+    - Fcl_MTH_U
+    - Fcl_MTH_E
+    - Fcl_MTH_O
+    - Fcl_HA_Hide
+    - Fcl_HA_Fung1
+    - Fcl_HA_Fung1_Low
+    - Fcl_HA_Fung1_Up
+    - Fcl_HA_Fung2
+    - Fcl_HA_Fung2_Low
+    - Fcl_HA_Fung2_Up
+    - Fcl_HA_Fung3
+    - Fcl_HA_Fung3_Up
+    - Fcl_HA_Fung3_Low
+    - Fcl_HA_Short
+    - Fcl_HA_Short_Up
+    - Fcl_HA_Short_Low
+    weights:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
