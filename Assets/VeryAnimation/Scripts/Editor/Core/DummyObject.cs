@@ -81,7 +81,8 @@ namespace VeryAnimation
             Release();
 
             this.sourceObject = sourceObject;
-            gameObject = sourceObject != null ? GameObject.Instantiate<GameObject>(sourceObject) : new GameObject();
+
+            gameObject = vaw.uEditorUtility.InstantiateForAnimatorPreview(sourceObject);
             gameObject.hideFlags |= HideFlags.HideAndDontSave | HideFlags.HideInInspector;
             gameObject.name = sourceObject.name;
             EditorCommon.DisableOtherBehaviors(gameObject);
@@ -90,16 +91,32 @@ namespace VeryAnimation
             animator = gameObject.GetComponent<Animator>();
             if (animator != null)
             {
-                animator.enabled = true;
-                animator.fireEvents = false;
-                animator.updateMode = AnimatorUpdateMode.Normal;
-                animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
-                UnityEditor.Animations.AnimatorController.SetAnimatorController(animator, null);
+                if (sourceObject.GetComponent<Animator>() != null)
+                {
+                    animator.enabled = true;
+                    animator.fireEvents = false;
+                    animator.updateMode = AnimatorUpdateMode.Normal;
+                    animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+                    UnityEditor.Animations.AnimatorController.SetAnimatorController(animator, null);
+                }
+                else
+                {  
+                    Animator.DestroyImmediate(animator);
+                    animator = null;
+                }
             }
             animation = gameObject.GetComponent<Animation>();
             if (animation != null)
             {
-                animation.enabled = true;
+                if (sourceObject.GetComponent<Animation>() != null)
+                {
+                    animation.enabled = true;
+                }
+                else
+                {
+                    Animation.DestroyImmediate(animation);
+                    animation = null;
+                }
             }
 
             UpdateBones();

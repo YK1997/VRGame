@@ -29,6 +29,16 @@ twitter: @AlSoSupport
 
 
 [Update History]
+Version 1.2.20
+- ADD : Help : add scrollbar
+- FIX : Fixed other components such as root motion control so that they do not affect animation behavior
+- FIX : AnimationRigging : Fixed to be able to move to a hierarchy other than the one directly under Root after creating a VARig.
+- FIX : Fixing errors that occur in Unity2023.1
+
+Version 1.2.19
+- ADD : Unity 2022.2 support
+- FIX : Fixing errors that occur in Unity2023.1
+
 Version 1.2.18
 - FIX : AnimatorIK : Fixed Swivel calculation and application
 - FIX : AnimatorIK : Added IK info sync when selection change

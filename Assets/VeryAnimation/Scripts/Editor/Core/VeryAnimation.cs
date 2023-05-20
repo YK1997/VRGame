@@ -66,8 +66,14 @@ namespace VeryAnimation
 #if UNITY_2020_1_OR_NEWER
         public UAnimationWindow_2020_1 uAw_2020_1 { get; private set; }
 #endif
+#if UNITY_2023_1_OR_NEWER
+        public UAnimationWindow_2023_1 uAw_2023_1 { get; private set; }
+#endif
 #if UNITY_2018_1_OR_NEWER
         public UAnimationUtility_2018_1 uAnimationUtility_2018_1 { get; private set; }
+#endif
+#if UNITY_2023_1_OR_NEWER
+        public UAnimationWindowUtility_2023_1 uAnimationWindowUtility_2023_1 { get; private set; }
 #endif
         #endregion
 
@@ -322,23 +328,31 @@ namespace VeryAnimation
             instance = this;
 
             edit = false;
-#if UNITY_2020_1_OR_NEWER
+#if UNITY_2023_1_OR_NEWER
+            uAw = uAw_2018_1 = uAw_2019_1 = uAw_2019_2 = uAw_2020_1 = uAw_2023_1 = new UAnimationWindow_2023_1();
+            uAnimationUtility = uAnimationUtility_2018_1 = new UAnimationUtility_2018_1();
+            uAnimationWindowUtility = uAnimationWindowUtility_2023_1 = new UAnimationWindowUtility_2023_1();
+#elif UNITY_2020_1_OR_NEWER
             uAw = uAw_2018_1 = uAw_2019_1 = uAw_2019_2 = uAw_2020_1 = new UAnimationWindow_2020_1();
             uAnimationUtility = uAnimationUtility_2018_1 = new UAnimationUtility_2018_1();
+            uAnimationWindowUtility = new UAnimationWindowUtility();
 #elif UNITY_2019_2_OR_NEWER
             uAw = uAw_2018_1 = uAw_2019_1 = uAw_2019_2 = new UAnimationWindow_2019_2();
             uAnimationUtility = uAnimationUtility_2018_1 = new UAnimationUtility_2018_1();
+            uAnimationWindowUtility = new UAnimationWindowUtility();
 #elif UNITY_2019_1_OR_NEWER
             uAw = uAw_2018_1 = uAw_2019_1 = new UAnimationWindow_2019_1();
             uAnimationUtility = uAnimationUtility_2018_1 = new UAnimationUtility_2018_1();
+            uAnimationWindowUtility = new UAnimationWindowUtility();
 #elif UNITY_2018_1_OR_NEWER
             uAw = uAw_2018_1 = new UAnimationWindow_2018_1();
             uAnimationUtility = uAnimationUtility_2018_1 = new UAnimationUtility_2018_1();
+            uAnimationWindowUtility = new UAnimationWindowUtility();
 #else
             uAw = new UAnimationWindow();
             uAnimationUtility = new UAnimationUtility();
-#endif
             uAnimationWindowUtility = new UAnimationWindowUtility();
+#endif
             uAvatar = new UAvatar();
             uAnimator = new UAnimator();
             uAnimatorControllerTool = new UAnimatorControllerTool();

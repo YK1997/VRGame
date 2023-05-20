@@ -10,11 +10,11 @@ namespace VeryAnimation
 {
     public class UAnimationWindowUtility
     {
-        private Func<EditorCurveBinding, bool> dg_ShouldShowAnimationWindowCurve;
-        private MethodInfo mi_IsNodeLeftOverCurve;
-        private MethodInfo mi_CreateNewClipAtPath;
-        private MethodInfo mi_GetNextKeyframeTime;
-        private MethodInfo mi_GetPreviousKeyframeTime;
+        protected Func<EditorCurveBinding, bool> dg_ShouldShowAnimationWindowCurve;
+        protected MethodInfo mi_IsNodeLeftOverCurve;
+        protected MethodInfo mi_CreateNewClipAtPath;
+        protected MethodInfo mi_GetNextKeyframeTime;
+        protected MethodInfo mi_GetPreviousKeyframeTime;
 
         public UAnimationWindowUtility()
         {
@@ -32,7 +32,7 @@ namespace VeryAnimation
             return dg_ShouldShowAnimationWindowCurve(binding);
         }
 
-        public bool IsNodeLeftOverCurve(object node)
+        public virtual bool IsNodeLeftOverCurve(object state, object node)
         {
             return (bool)mi_IsNodeLeftOverCurve.Invoke(null, new object[] { node });
         }

@@ -186,12 +186,12 @@ namespace VeryAnimation
                 Assert.IsNotNull(mi_UnSelectHierarchyItem = animationWindowStateType.GetMethod("UnSelectHierarchyItem", new Type[] { typeof(int) }));
                 Assert.IsNotNull(mi_SnapToFrame = animationWindowStateType.GetMethod("SnapToFrame", new Type[] { typeof(float), typeof(float) }));
                 Assert.IsNotNull(mi_TimeToFrameRound = animationWindowStateType.GetMethod("TimeToFrameRound"));
-                Assert.IsNotNull(mi_StartRecording = animationWindowStateType.GetMethod("StartRecording"));
-                Assert.IsNotNull(mi_StopRecording = animationWindowStateType.GetMethod("StopRecording"));
-                Assert.IsNotNull(mi_StartPlayback = animationWindowStateType.GetMethod("StartPlayback"));
-                Assert.IsNotNull(mi_StopPlayback = animationWindowStateType.GetMethod("StopPlayback"));
-                Assert.IsNotNull(mi_StartPreview = animationWindowStateType.GetMethod("StartPreview"));
-                Assert.IsNotNull(mi_StopPreview = animationWindowStateType.GetMethod("StopPreview"));
+                mi_StartRecording = animationWindowStateType.GetMethod("StartRecording");
+                mi_StopRecording = animationWindowStateType.GetMethod("StopRecording");
+                mi_StartPlayback = animationWindowStateType.GetMethod("StartPlayback");
+                mi_StopPlayback = animationWindowStateType.GetMethod("StopPlayback");
+                mi_StartPreview = animationWindowStateType.GetMethod("StartPreview");
+                mi_StopPreview = animationWindowStateType.GetMethod("StopPreview");
                 Assert.IsNotNull(dg_get_showCurveEditor = EditorCommon.CreateGetFieldDelegate<bool>(animationWindowStateType.GetField("showCurveEditor")));
                 Assert.IsNotNull(dg_get_hierarchyState = EditorCommon.CreateGetFieldDelegate<TreeViewState>(animationWindowStateType.GetField("hierarchyState")));
                 Assert.IsNotNull(dg_get_hierarchyData = EditorCommon.CreateGetFieldDelegate<object>(animationWindowStateType.GetField("hierarchyData")));
@@ -405,7 +405,7 @@ namespace VeryAnimation
                 return dg_TimeToFrameRound(time);
             }
 
-            public bool StartRecording(object instance)
+            public virtual bool StartRecording(object instance)
             {
                 if (instance == null) return false;
                 try
@@ -419,7 +419,7 @@ namespace VeryAnimation
                 }
                 return true;
             }
-            public bool StopRecording(object instance)
+            public virtual bool StopRecording(object instance)
             {
                 if (instance == null) return false;
                 try
@@ -434,7 +434,7 @@ namespace VeryAnimation
                 }
                 return true;
             }
-            public bool StartPlayback(object instance)
+            public virtual bool StartPlayback(object instance)
             {
                 if (instance == null) return false;
                 try
@@ -448,7 +448,7 @@ namespace VeryAnimation
                 }
                 return true;
             }
-            public bool StopPlayback(object instance)
+            public virtual bool StopPlayback(object instance)
             {
                 if (instance == null) return false;
                 try
@@ -462,7 +462,7 @@ namespace VeryAnimation
                 }
                 return true;
             }
-            public bool StartPreview(object instance)
+            public virtual bool StartPreview(object instance)
             {
                 if (instance == null) return false;
                 try
@@ -476,7 +476,7 @@ namespace VeryAnimation
                 }
                 return true;
             }
-            public bool StopPreview(object instance)
+            public virtual bool StopPreview(object instance)
             {
                 if (instance == null) return false;
                 try
@@ -518,10 +518,10 @@ namespace VeryAnimation
             public UAnimationWindowControl(Assembly asmUnityEditor)
             {
                 var iAnimationWindowControlType = asmUnityEditor.GetType("UnityEditorInternal.IAnimationWindowControl");
-                Assert.IsNotNull(mi_GoToNextKeyframe = iAnimationWindowControlType.GetMethod("GoToNextKeyframe", new Type[] { }));
-                Assert.IsNotNull(mi_GoToPreviousKeyframe = iAnimationWindowControlType.GetMethod("GoToPreviousKeyframe", new Type[] { }));
-                Assert.IsNotNull(mi_GoToFirstKeyframe = iAnimationWindowControlType.GetMethod("GoToFirstKeyframe", new Type[] { }));
-                Assert.IsNotNull(mi_GoToLastKeyframe = iAnimationWindowControlType.GetMethod("GoToLastKeyframe", new Type[] { }));
+                mi_GoToNextKeyframe = iAnimationWindowControlType.GetMethod("GoToNextKeyframe", new Type[] { });
+                mi_GoToPreviousKeyframe = iAnimationWindowControlType.GetMethod("GoToPreviousKeyframe", new Type[] { });
+                mi_GoToFirstKeyframe = iAnimationWindowControlType.GetMethod("GoToFirstKeyframe", new Type[] { });
+                mi_GoToLastKeyframe = iAnimationWindowControlType.GetMethod("GoToLastKeyframe", new Type[] { });
 
                 var animationWindowControlType = asmUnityEditor.GetType("UnityEditorInternal.AnimationWindowControl");
                 Assert.IsNotNull(fi_m_Time = animationWindowControlType.GetField("m_Time", BindingFlags.NonPublic | BindingFlags.Instance));
@@ -668,8 +668,8 @@ namespace VeryAnimation
             public UAnimationWindowSelectionItem(Assembly asmUnityEditor)
             {
                 var animationWindowSelectionItemType = asmUnityEditor.GetType("UnityEditorInternal.AnimationWindowSelectionItem");
-                Assert.IsNotNull(dg_set_m_CurvesCache = EditorCommon.CreateSetFieldDelegate<IList>(animationWindowSelectionItemType.GetField("m_CurvesCache", BindingFlags.NonPublic | BindingFlags.Instance)));
-                Assert.IsNotNull(dg_get_m_CurvesCache = EditorCommon.CreateGetFieldDelegate<IList>(animationWindowSelectionItemType.GetField("m_CurvesCache", BindingFlags.NonPublic | BindingFlags.Instance)));
+                dg_set_m_CurvesCache = EditorCommon.CreateSetFieldDelegate<IList>(animationWindowSelectionItemType.GetField("m_CurvesCache", BindingFlags.NonPublic | BindingFlags.Instance));
+                dg_get_m_CurvesCache = EditorCommon.CreateGetFieldDelegate<IList>(animationWindowSelectionItemType.GetField("m_CurvesCache", BindingFlags.NonPublic | BindingFlags.Instance));
             }
 
             public GameObject GetGameObject(object instance)
@@ -695,31 +695,31 @@ namespace VeryAnimation
                 return dg_get_animationClip();
             }
 
-            public IList GetCurves(object instance)
+            public virtual IList GetCurves(object instance)
             {
                 if (instance == null) return null;
                 if (dg_get_curves == null || dg_get_curves.Target != instance)
                     dg_get_curves = (Func<IList>)Delegate.CreateDelegate(typeof(Func<IList>), instance, instance.GetType().GetProperty("curves").GetGetMethod());
                 return dg_get_curves();
             }
-            public void SetCurvesCache(object instance, IList curves)
+            public virtual void SetCurvesCache(object instance, IList curves)
             {
                 if (instance == null) return;
                 dg_set_m_CurvesCache(instance, curves);
             }
-            public IList GetCurvesCache(object instance)
+            public virtual IList GetCurvesCache(object instance)
             {
                 if (instance == null) return null;
                 return dg_get_m_CurvesCache(instance);
             }
-            public void ClearCurvesCache(object instance)
+            public virtual void ClearCurvesCache(object instance)
             {
                 if (instance == null) return;
                 if (dg_ClearCache == null || dg_ClearCache.Target != instance)
                     dg_ClearCache = (Action)Delegate.CreateDelegate(typeof(Action), instance, instance.GetType().GetMethod("ClearCache"));
                 dg_ClearCache();
             }
-            public Type GetEditorCurveValueType(object instance, EditorCurveBinding binding)
+            public virtual Type GetEditorCurveValueType(object instance, EditorCurveBinding binding)
             {
                 if (instance == null) return null;
                 if (dg_GetEditorCurveValueType == null || dg_GetEditorCurveValueType.Target != instance)
@@ -1288,7 +1288,7 @@ namespace VeryAnimation
             return uAnimationWindowState.TimeToFrameRound(animationWindowStateInstance, time);
         }
 
-        public void MoveToNextFrame()
+        public virtual void MoveToNextFrame()
         {
             var aws = animationWindowStateInstance;
             if (uAnimationWindowState.GetLinkedWithSequencer(aws))
@@ -1310,7 +1310,7 @@ namespace VeryAnimation
                 Repaint();
             }
         }
-        public void MoveToPrevFrame()
+        public virtual void MoveToPrevFrame()
         {
             var aws = animationWindowStateInstance;
             if (uAnimationWindowState.GetLinkedWithSequencer(aws))
@@ -1332,22 +1332,22 @@ namespace VeryAnimation
                 Repaint();
             }
         }
-        public void MoveToNextKeyframe()
+        public virtual void MoveToNextKeyframe()
         {
             uAnimationWindowControl.GoToNextKeyframe(animationWindowControlInstance);
             Repaint();
         }
-        public void MoveToPreviousKeyframe()
+        public virtual void MoveToPreviousKeyframe()
         {
             uAnimationWindowControl.GoToPreviousKeyframe(animationWindowControlInstance);
             Repaint();
         }
-        public void MoveToFirstKeyframe()
+        public virtual void MoveToFirstKeyframe()
         {
             uAnimationWindowControl.GoToFirstKeyframe(animationWindowControlInstance);
             Repaint();
         }
-        public void MoveToLastKeyframe()
+        public virtual void MoveToLastKeyframe()
         {
             uAnimationWindowControl.GoToLastKeyframe(animationWindowControlInstance);
             Repaint();
@@ -1406,7 +1406,7 @@ namespace VeryAnimation
             return uAnimationWindowState.GetHierarchyState(animationWindowStateInstance);
         }
 
-        public void PropertySortOrFilterByBindings(List<EditorCurveBinding> bindings)
+        public virtual void PropertySortOrFilterByBindings(List<EditorCurveBinding> bindings)
         {
             var aws = animationWindowStateInstance;
             var sl = selection;
@@ -1535,7 +1535,7 @@ namespace VeryAnimation
                 var hierarchyNodeID = uDopeLine.GetHierarchyNodeID(dopeline);
                 var windowHierarchyNode = uAnimationWindowHierarchyDataSource.FindItem(hierarchyData, hierarchyNodeID);
                 if (windowHierarchyNode == null) continue;
-                if (uAnimationWindowUtility.IsNodeLeftOverCurve(windowHierarchyNode))
+                if (uAnimationWindowUtility.IsNodeLeftOverCurve(aws, windowHierarchyNode))
                 {
                     var curves = uAnimationWindowHierarchyNode.GetCurves(windowHierarchyNode);
                     if (curves == null) continue;
