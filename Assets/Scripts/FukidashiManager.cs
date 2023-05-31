@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
-public class Fukidashi : MonoBehaviour
+public class FukidashiManager : MonoBehaviour
 {
     public const int FAILED_TO_CREATE_FUKIDASHI = 0;
     /// <summary>
@@ -38,7 +38,7 @@ public class Fukidashi : MonoBehaviour
         return fukidashi;
     }
 
-    private static Fukidashi m_Self;
+    private static FukidashiManager m_Self;
     
     void Start()
     {

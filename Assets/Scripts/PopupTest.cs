@@ -11,8 +11,8 @@ public class PopupTest : MonoBehaviour
     void Start()
     {
         
-        StartCoroutine(Fukidasu());
-//        StartCoroutine(DisplayPopup());
+//        StartCoroutine(Fukidasu());
+        StartCoroutine(DisplayPopup());
     }
 
     // Update is called once per frame
@@ -26,12 +26,12 @@ public class PopupTest : MonoBehaviour
         //プレイヤーのちょっと前面上に表示
         var chottoue = target.transform.position+(target.transform.forward * 2.0f);
         chottoue.y += 0.5f;
-        var fukidashi = Fukidashi.MakeFukdashi("ほげえええええええええええ",
+        var fukidashi = FukidashiManager.MakeFukdashi("ほげえええええええええええ",
             target, came, chottoue,new Vector2(500,100));
         //ポップアップ表示テストスクリプト
         //LocalPosition
         yield return new WaitForSeconds(3.0f);
-        Fukidashi.Close(fukidashi,2.0f);
+        FukidashiManager.Close(fukidashi,2.0f);
     }
     IEnumerator DisplayPopup()
     {
