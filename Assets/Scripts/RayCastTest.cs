@@ -31,6 +31,7 @@ public class RayCastTest : MonoBehaviour
 
     IEnumerator PickUp(GameObject obj)
     {
+        Debug.Log("PickUp_Start");
         while (Vector3.Distance(obj.transform.position,gameObject.transform.position)>=0.5f)
         {
             obj.transform.position = Vector3.Lerp(
