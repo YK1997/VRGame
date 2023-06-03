@@ -29,6 +29,16 @@ twitter: @AlSoSupport
 
 
 【更新履歴】
+Version 1.2.20
+- ADD : Help : スクロールバーを追加
+- FIX : ルートモーション制御などの他のコンポーネントがアニメーションの動作に影響しないように修正
+- FIX : AnimationRigging : VARigを作成後にRootの直下以外の階層へ移動できるように修正
+- FIX : Unity2023.1で発生するエラーの修正
+
+Version 1.2.19
+- ADD : Unity2022.2対応
+- FIX : Unity2023.1で発生するエラーの修正
+
 Version 1.2.18
 - FIX : AnimatorIK : Swivelの算出と適用を修正
 - FIX : AnimatorIK : 選択変更時にIK情報同期の追加

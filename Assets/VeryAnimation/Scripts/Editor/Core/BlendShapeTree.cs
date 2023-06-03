@@ -846,9 +846,12 @@ namespace VeryAnimation
             va.transformPoseSave.ResetDefaultTransform();
             va.blendShapeWeightSave.ResetDefaultWeight();
 
-            var gameObject = GameObject.Instantiate<GameObject>(vaw.gameObject);
+            var gameObject = vaw.uEditorUtility.InstantiateForAnimatorPreview(vaw.gameObject);
             gameObject.hideFlags |= HideFlags.HideAndDontSave;
-            gameObject.transform.rotation = Quaternion.identity;
+            gameObject.transform.SetParent(null);
+            gameObject.transform.localPosition = Vector3.zero;
+            gameObject.transform.localRotation = Quaternion.identity;
+            gameObject.transform.localScale = Vector3.one;
             EditorCommon.DisableOtherBehaviors(gameObject);
 
             var animator = gameObject.GetComponent<Animator>();

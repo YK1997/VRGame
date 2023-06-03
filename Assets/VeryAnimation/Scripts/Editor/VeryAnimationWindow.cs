@@ -34,7 +34,7 @@ namespace VeryAnimation
     [Serializable]
     public class VeryAnimationWindow : EditorWindow
     {
-        public const string Version = "1.2.18";
+        public const string Version = "1.2.20";
         public const int AsmdefVersion = 31;
 
 #if UNITY_2020_1_OR_NEWER
@@ -122,6 +122,7 @@ namespace VeryAnimation
         #region Reflection
         public UEditorWindow uEditorWindow { get; private set; }
         public USceneView uSceneView { get; private set; }
+        public UEditorUtility uEditorUtility { get; private set; }
         public UEditorGUIUtility uEditorGUIUtility { get; private set; }
         public USnapSettings uSnapSettings { get; private set; }
         public UDisc uDisc { get; private set; }
@@ -170,6 +171,7 @@ namespace VeryAnimation
         private int beforeSelectedTab;
 
         private Vector2 errorLogScrollPosition;
+        private Vector2 helpScrollPosition;
 
         private GameObject forceChangeObject;
         #endregion
@@ -709,6 +711,7 @@ namespace VeryAnimation
                 uDisc = new UDisc();
                 uEditorGUI = new UEditorGUI();
                 uHandleUtility = new UHandleUtility();
+                uEditorUtility = new UEditorUtility();
 #if UNITY_2020_1_OR_NEWER
                 uEditorWindow = new UEditorWindow_2020_1();
                 uEditorGUIUtility = new UEditorGUIUtility_2018_1();
@@ -996,7 +999,7 @@ namespace VeryAnimation
                 {
                     #region UnityVersion
                     {
-#if UNITY_2022_2_OR_NEWER || !UNITY_2019_1_OR_NEWER
+#if UNITY_2023_1_OR_NEWER || !UNITY_2019_1_OR_NEWER
                         EditorGUILayout.HelpBox(Language.GetText(Language.Help.NotSupportUnityMessage), MessageType.Error);
 #endif
                     }
@@ -1592,6 +1595,7 @@ namespace VeryAnimation
                         }
 
                         EditorGUILayout.BeginVertical(guiStyleSkinBox);
+                        helpScrollPosition = EditorGUILayout.BeginScrollView(helpScrollPosition);
                         {
                             EditorGUILayout.LabelField("Version", Version);
 #if UNITY_2019_1_OR_NEWER
@@ -1656,6 +1660,7 @@ namespace VeryAnimation
                             }
                             EditorGUI.indentLevel--;
                         }
+                        EditorGUILayout.EndScrollView();
                         EditorGUILayout.EndVertical();
                     }
                 }

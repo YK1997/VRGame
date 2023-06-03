@@ -282,6 +282,9 @@ namespace VeryAnimation
 
         public static Func<object, T> CreateGetFieldDelegate<T>(FieldInfo fi)
         {
+            if (fi == null)
+                return null;
+
             string methodName = fi.ReflectedType.FullName + ".get_" + fi.Name;
             DynamicMethod dynamicMethod = new DynamicMethod(methodName, typeof(T), new Type[] { typeof(object) }, true);
             ILGenerator gen = dynamicMethod.GetILGenerator();
@@ -299,6 +302,9 @@ namespace VeryAnimation
         }
         public static Action<object, T> CreateSetFieldDelegate<T>(FieldInfo fi)
         {
+            if (fi == null)
+                return null;
+
             string methodName = fi.ReflectedType.FullName + ".set_" + fi.Name;
             DynamicMethod dynamicMethod = new DynamicMethod(methodName, null, new Type[] { typeof(object), typeof(T) }, true);
             ILGenerator gen = dynamicMethod.GetILGenerator();

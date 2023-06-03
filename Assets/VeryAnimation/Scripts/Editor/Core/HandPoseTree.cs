@@ -811,7 +811,7 @@ namespace VeryAnimation
             var defaultHumanPose = new HumanPose();
             va.GetEditGameObjectHumanPose(ref defaultHumanPose, VeryAnimation.EditObjectFlag.Base);
 
-            var gameObject = GameObject.Instantiate<GameObject>(vaw.gameObject);
+            var gameObject = vaw.uEditorUtility.InstantiateForAnimatorPreview(vaw.gameObject);
             gameObject.hideFlags |= HideFlags.HideAndDontSave;
             gameObject.transform.SetParent(null);
             gameObject.transform.localPosition = Vector3.zero;

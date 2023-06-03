@@ -80,7 +80,7 @@ namespace VeryAnimation
         }
         public static VeryAnimationRig GetVeryAnimationRig(GameObject gameObject)
         {
-            return ArrayUtility.Find(gameObject.GetComponentsInChildren<VeryAnimationRig>(true), x => x.name == AnimationRiggingRigName && x.transform.parent == gameObject.transform);
+            return ArrayUtility.Find(gameObject.GetComponentsInChildren<VeryAnimationRig>(true), x => x.name == AnimationRiggingRigName);
         }
         public static void Create(GameObject gameObject)
         {
