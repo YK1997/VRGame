@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class TrushScript : MonoBehaviour
 {
+    enum layer
+    {
+        Default = 0,
+        Water = 4,
+        UI = 5,
+        Floor = 8,
+        MovableObject = 9,
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +28,10 @@ public class TrushScript : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         Debug.Log(other.gameObject.name);
-        Destroy(other.gameObject);
-        ScoreManager.SetScore(10);
+        if ((layer)other.gameObject.layer == layer.MovableObject)
+        {
+            Destroy(other.gameObject);
+            ScoreManager.SetScore(10);
+        }
     }
 }
