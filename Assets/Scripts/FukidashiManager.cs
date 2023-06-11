@@ -43,7 +43,6 @@ public class FukidashiManager : MonoBehaviour
     void Start()
     {
         m_Self = this;
-        Debug.Log(m_Self);
     }
 
     void Update()

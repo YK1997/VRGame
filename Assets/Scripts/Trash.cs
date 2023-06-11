@@ -9,15 +9,18 @@ public class Trash : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private GameObject m_SpawnArea;
-    private string m_TrashPath = "Trashes/Cube";
+    private List<string> m_TrashPath = new List<string>()
+    {
+        "Trashes/petbbotle_001",
+        "Trashes/petbbotle_002",
+        "Trashes/petbbotle_003",
+        "Trashes/petbbotle_004",
+        "Trashes/petbbotle_005"
+    };
 //    [SerializeField] private string m_TrashPath = "Trashes/Cube";
     private List<GameObject> TrashList = new List<GameObject>();
-    void Start()
-    {
-        NpcSpawner();
-    }
 
-    void NpcSpawner()
+    public void TrashSpawn()
     {
         for (int i=0; i<=m_SpawnArea.transform.childCount;i++)
         {
@@ -42,7 +45,6 @@ public class Trash : MonoBehaviour
                 Random.RandomRange(0, (m_SpawnArea.transform.childCount))).position;
             //TODO:現状positionとpointを完全一致で取得しているが、物理演算が入って座標がずれる可能性があるためおおよそのいちでチェックする
         } while ((TrashList.Where(Trash => (Trash.transform.position == point)).Count() > 0) );
-
         return point;
     }
 
@@ -50,8 +52,7 @@ public class Trash : MonoBehaviour
     {
         if (spawn_point!=null)
         {
-//            Resources.FindObjectsOfTypeAll(m_TrashPath);
-            var go = GameObject.Instantiate((GameObject) Resources.Load(m_TrashPath));
+            var go = GameObject.Instantiate((GameObject) Resources.Load(m_TrashPath[Random.Range(0,m_TrashPath.Count)]));
             go.transform.position = spawn_point;
             TrashList.Add(go);
         }

@@ -52,4 +52,9 @@ public class CountDownTimer : MonoBehaviour
 			timerText.text = "制限時間終了";
         }
     }
+
+    public float GetTotalTime()
+    {
+	    return totalTime;
+    } 
 }

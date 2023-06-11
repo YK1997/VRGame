@@ -27,4 +27,13 @@ public class ScoreManager : MonoBehaviour
     {
         m_Score += score;
     }
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public static int GetScore()
+    {
+        return m_Score;
+    }
 }

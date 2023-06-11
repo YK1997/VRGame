@@ -16,6 +16,9 @@ public class MoveObject : MonoBehaviour
     public SteamVR_Action_Boolean grabAction;
     public SteamVR_Input_Sources handType;
     
+    public SteamVR_Action_Boolean m_TurnLeft;
+    public SteamVR_Action_Boolean m_TurnRight;
+//      
     enum layer
     {
         Default = 0,
@@ -59,6 +62,20 @@ public class MoveObject : MonoBehaviour
         RaycastHit raycast_hit;
         if (Physics.Raycast(m_Ray,out raycast_hit,RAYCAST_LENGTH))
         {
+            //----------------------------------------------------------
+            //竹田追加 ボタン押下処理を追加
+            //----------------------------------------------------------
+            if (grabAction.GetLastStateDown(handType))
+            {
+                //対象のオブジェクトでクリック扱いにする。
+                //レシーバがなくてもエラー表示にさせない
+                raycast_hit.transform.gameObject.SendMessage("OnClick",
+                    new Collision(),SendMessageOptions.DontRequireReceiver);
+            }
+            //----------------------------------------------------------
+            //竹田追加 ボタン押下処理を追加
+            //----------------------------------------------------------
+            
             //触れたオブジェクトが動かせるものなら枠を光らせる
             if ((layer) raycast_hit.transform.gameObject.layer == layer.MovableObject)
             {
@@ -79,6 +96,9 @@ public class MoveObject : MonoBehaviour
                 {
                     case layer.MovableObject:
                         ObjectMove(raycast_hit);
+                        break;
+                    case layer.Floor:
+                        WarpToRaycastHit(raycast_hit,m_Camerarig);
                         break;
                 }
             }
@@ -109,5 +129,37 @@ public class MoveObject : MonoBehaviour
             m_FixedJoint.connectedBody = null;
         }
     }
-
+    /// <summary>
+    /// ワープします。
+    /// </summary>
+    /// <param name="hit"></param>
+    /// <param name="action"></param>
+    /// <param name="m_Input"></param>
+    /// <param name="warp_object"></param>
+    void WarpToRaycastHit(
+        RaycastHit hit,
+        GameObject warp_object){
+        //物を持っていたら移動させない
+        if (m_FixedJoint.connectedBody != null)
+        {
+            return;
+        }
+        warp_object.transform.position = new Vector3(
+            hit.point.x,
+            warp_object.transform.position.y,
+            hit.point.z
+        );
+    }
+    void Turn()
+    {
+        //左右回転
+        if (m_TurnRight.GetLastStateDown(handType))
+        {
+            m_Camerarig.transform.Rotate(0,45,0);
+        }
+        if (m_TurnLeft.GetLastStateDown(handType))
+        {
+            m_Camerarig.transform.Rotate(0,-45,0);
+        }
+    }
 }
