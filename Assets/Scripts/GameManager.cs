@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager _self;
     public static Phase m_Phase { get; private set; }
     public GameObject m_CameraRig;
+    public GameObject m_Timer;
 
     public enum Phase
     {
@@ -68,13 +69,21 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (m_Phase == Phase.Ingame)
+        if (m_Phase == Phase.Ingame && m_Timer != null)
         {
-            //Updateの中でやるべきではないので後ほど修正
-            float total_time = GameObject.Find("/Timer").GetComponent<CountDownTimer>().GetTotalTime();
-            if (total_time<=0)
+            try
             {
-                SwitchPhase(Phase.Result);
+//                GameObject.Find("/Timer")
+                //Updateの中でやるべきではないので後ほど修正
+                float total_time = m_Timer.GetComponent<CountDownTimer>().GetTotalTime();
+                if (total_time<=0)
+                {
+                    SwitchPhase(Phase.Result);
+                }
+            }
+            catch (Exception e)
+            {
+                //無視
             }
         }
     }
@@ -104,6 +113,7 @@ public class GameManager : MonoBehaviour
                     Trash trash = GameObject.Find("/room_with_furniture").GetComponent<Trash>();
                     Debug.Log("camera position:" + _self.m_CameraRig.transform.position.y);
                     trash.TrashSpawn();
+                    m_Timer = GameObject.Find("/Timer");
                     break;
                 case Phase.Result:
                     //タイトル
@@ -111,15 +121,15 @@ public class GameManager : MonoBehaviour
                         "ResultPopup",
                         _self.m_CameraRig,
                         _self.m_CameraRig.transform.Find("Camera").GetComponent<Camera>(),
-                        _self.m_CameraRig.transform.position + (_self.m_CameraRig.transform.forward * 1.0f)
+                        _self.m_CameraRig.transform.Find("Camera").transform.position + (_self.m_CameraRig.transform.forward * 1.0f)
                     );
                     float score = ScoreManager.GetScore();
-//                    result_popup.GetComponentInChildren<Text>().text = $@"
-//片付けたゴミ:{score}個
-//壊した家具の数:xxxxxx個
-//マッマの評価:SSS
-//ランク:わごむ級
-//";
+                    result_popup.GetComponentInChildren<Text>().text = $@"
+片付けたゴミ:{score}個
+壊した家具の数:xxxxxx個
+マッマの評価:SSS
+ランク:わごむ級
+";
 
                     OnClickSwitchScene result_onclick = result_popup.AddComponent<OnClickSwitchScene>();
                     result_onclick.m_Phase = Phase.Title;

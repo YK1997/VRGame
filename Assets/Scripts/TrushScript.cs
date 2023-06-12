@@ -31,7 +31,7 @@ public class TrushScript : MonoBehaviour
         if ((layer)other.gameObject.layer == layer.MovableObject)
         {
             Destroy(other.gameObject);
-            ScoreManager.SetScore(10);
+            ScoreManager.SetScore(1);
         }
     }
 }

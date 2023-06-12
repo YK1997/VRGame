@@ -67,6 +67,7 @@ public class MoveObject : MonoBehaviour
             //----------------------------------------------------------
             if (grabAction.GetLastStateDown(handType))
             {
+                Debug.Log(raycast_hit.transform.name);
                 //対象のオブジェクトでクリック扱いにする。
                 //レシーバがなくてもエラー表示にさせない
                 raycast_hit.transform.gameObject.SendMessage("OnClick",
