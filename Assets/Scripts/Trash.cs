@@ -32,7 +32,7 @@ public class Trash : MonoBehaviour
     /// ランダム位置で出現させる
     /// </summary>
     /// <returns></returns>
-    Vector3 GetSpawnPoint()
+    public Vector3 GetSpawnPoint()
     {
         Vector3 point = new Vector3();
         if (TrashList.Count >= m_SpawnArea.transform.childCount)
@@ -48,7 +48,7 @@ public class Trash : MonoBehaviour
         return point;
     }
 
-    void Spawn(Vector3 spawn_point)
+    public void Spawn(Vector3 spawn_point)
     {
         if (spawn_point!=null)
         {

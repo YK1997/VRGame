@@ -1029,9 +1029,9 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 3919267936172408235}
   m_AABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_DirtyAABB: 1
+    m_Center: {x: -0.0033503175, y: 1.6510208, z: -0.038494162}
+    m_Extent: {x: 0.13991132, y: 0.14012074, z: 0.13253993}
+  m_DirtyAABB: 0
 --- !u!1 &1486147421380444797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,9 +1749,9 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 3919267936172408235}
   m_AABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_DirtyAABB: 1
+    m_Center: {x: 0.000000014901161, y: 1.6277194, z: 0.014274461}
+    m_Extent: {x: 0.1086386, y: 0.1207366, z: 0.0753583}
+  m_DirtyAABB: 0
 --- !u!1 &2579184030620530449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2463,6 +2463,7 @@ GameObject:
   - component: {fileID: 6713789014141217938}
   - component: {fileID: 6495612832994110463}
   - component: {fileID: 7591136816686868786}
+  - component: {fileID: 1555104081}
   m_Layer: 0
   m_Name: ojisan
   m_TagString: Untagged
@@ -2527,7 +2528,7 @@ Animator:
   m_GameObject: {fileID: 3881404358173784714}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3c4ec958de532ef4eaf4c330b25995e2, type: 2}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5e96925022b3ceb4bb4e5aee8b60a333, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2748,6 +2749,18 @@ MonoBehaviour:
       m_RotationOrder: 4
     CurveXRangeDegree: 90
     CurveYRangeDegree: 10
+--- !u!114 &1555104081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3881404358173784714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b504e9894085b2d4f8ec371745823ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3909168930484999688
 GameObject:
   m_ObjectHideFlags: 0
@@ -5931,6 +5944,6 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 3919267936172408235}
   m_AABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_DirtyAABB: 1
+    m_Center: {x: 0, y: 0.8807292, z: 0.008638211}
+    m_Extent: {x: 0.7860416, y: 0.88072896, z: 0.16309363}
+  m_DirtyAABB: 0
