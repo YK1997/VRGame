@@ -37,17 +37,21 @@ public class MoveObject : MonoBehaviour
     
     IEnumerator PickUp(GameObject obj)
     {
-        while (Vector3.Distance(obj.transform.position,gameObject.transform.position)>=0.2f)
+        while (obj != null && Vector3.Distance(obj.transform.position,gameObject.transform.position)>=0.2f)
         {
             obj.transform.position = Vector3.Lerp(
                 obj.transform.position,
                 gameObject.transform.position, 0.2f);
             yield return new WaitForSeconds(0.01f);
         }
-        Rigidbody target_rigidbody = obj.GetComponent<Rigidbody>();
-        if (target_rigidbody != null)
+        
+        if (obj != null)
         {
-            m_FixedJoint.connectedBody = target_rigidbody;
+            Rigidbody target_rigidbody = obj.GetComponent<Rigidbody>();
+            if (target_rigidbody != null)
+            {
+                m_FixedJoint.connectedBody = target_rigidbody;
+            }            
         }
     }
 
@@ -67,7 +71,6 @@ public class MoveObject : MonoBehaviour
             //----------------------------------------------------------
             if (grabAction.GetLastStateDown(handType))
             {
-                Debug.Log(raycast_hit.transform.name);
                 //対象のオブジェクトでクリック扱いにする。
                 //レシーバがなくてもエラー表示にさせない
                 raycast_hit.transform.gameObject.SendMessage("OnClick",

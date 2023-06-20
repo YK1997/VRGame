@@ -26,7 +26,6 @@ public class OutlineManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("RemoveOutlineObject");
             RemoveOutlineObject();
         }
 

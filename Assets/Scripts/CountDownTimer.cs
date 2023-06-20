@@ -57,4 +57,8 @@ public class CountDownTimer : MonoBehaviour
     {
 	    return totalTime;
     } 
+    public void SetSeconds(float val)
+    {
+	    seconds = val;
+    } 
 }

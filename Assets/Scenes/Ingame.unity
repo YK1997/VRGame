@@ -260,7 +260,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1827302968368196946, guid: 96732b2c90b7a514dab3d96fb50fc77b, type: 3}
       propertyPath: m_Name
-      value: Trashcan]
+      value: Trash
       objectReference: {fileID: 0}
     - target: {fileID: 7635284980154912004, guid: 96732b2c90b7a514dab3d96fb50fc77b, type: 3}
       propertyPath: m_Pivot.x
@@ -1020,7 +1020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minute: 0
-  seconds: 30
+  seconds: 60
 --- !u!1 &1215147263337003696
 GameObject:
   m_ObjectHideFlags: 0

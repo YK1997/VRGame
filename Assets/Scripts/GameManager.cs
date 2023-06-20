@@ -114,6 +114,8 @@ public class GameManager : MonoBehaviour
                     Debug.Log("camera position:" + _self.m_CameraRig.transform.position.y);
                     trash.TrashSpawn();
                     m_Timer = GameObject.Find("/Timer");
+                    //とりあえず5分
+                    m_Timer.GetComponent<CountDownTimer>().SetSeconds(300);
                     break;
                 case Phase.Result:
                     //タイトル
@@ -130,7 +132,8 @@ public class GameManager : MonoBehaviour
 マッマの評価:SSS
 ランク:わごむ級
 ";
-
+                    ScoreManager.ResetScore();
+                    EnemyManager.ResetEnemyList();
                     OnClickSwitchScene result_onclick = result_popup.AddComponent<OnClickSwitchScene>();
                     result_onclick.m_Phase = Phase.Title;
                     break;
