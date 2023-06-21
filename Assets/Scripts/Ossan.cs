@@ -15,6 +15,10 @@ public class Ossan : MonoBehaviour
         m_Trash = GameObject.Find("/room_with_furniture").GetComponent<Trash>();
         m_EnemyManager = GameObject.Find("/GameManagerObject").GetComponent<EnemyManager>();
         StartCoroutine(SpawnTrash());
+        //おっさんの出現位置を変更
+        var ossan_trans = GameObject.Find("OssanSpawnPoint").transform;
+        gameObject.transform.position = ossan_trans.position;
+        gameObject.transform.eulerAngles = ossan_trans.rotation.eulerAngles;
     }
 
     IEnumerator SpawnTrash()
@@ -35,7 +39,7 @@ public class Ossan : MonoBehaviour
     public void OnClick(Collision other){
         //おっさんが驚いて落ちる
         //リストからおっさん削除
-        m_EnemyManager.RemoveFromEnemyList(this.gameObject);
+        m_EnemyManager.RemoveFromEnemyList(gameObject);
         //爆発エフェクト
         //おっさん削除
         Destroy(this.gameObject);

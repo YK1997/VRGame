@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Goki : MonoBehaviour
 {
+    private Trash m_Trash;
+    private EnemyManager m_EnemyManager;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        m_Trash = GameObject.Find("/room_with_furniture").GetComponent<Trash>();
+        m_EnemyManager = GameObject.Find("/GameManagerObject").GetComponent<EnemyManager>();
+        gameObject.GetComponent<Animator>().SetBool("g_move",true);
+        gameObject.transform.position = m_Trash.GetSpawnPoint();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        m_EnemyManager.RemoveFromEnemyList(gameObject);
     }
 }

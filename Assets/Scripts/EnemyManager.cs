@@ -4,46 +4,122 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class EnemyManager : MonoBehaviour
 {
     [CanBeNull] public static List<GameObject> m_Enemies = new List<GameObject>();
 
     private Vector3 m_OssanSpawn_Point = new Vector3(); 
-    private Vector3 m_OssanSpawn_Rotate = new Vector3(); 
+    private Vector3 m_OssanSpawn_Rotate = new Vector3();
+    private List<Hashtable> m_EnemyMasterDats = new List<Hashtable>()
+    {
+        new Hashtable(){{"name","ojisan"},{"max_num",1},{"spawn_time",5.0f},},
+        new Hashtable(){{"name","g"},{"max_num",6},{"spawn_time",3.0f},},
+    };
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    private Dictionary<string,float> m_EnemiesPopTimer = new Dictionary<string, float>()
+    {
+        {"ojisan",0},
+        {"g",0},
+    };
     
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnEnemy());
+//        StartCoroutine(SpawnEnemy());
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {  
     }
 
+    /// <summary>
+    /// 敵出現タイマ更新
+    /// </summary>
+    public void UpdateEnemyRespawnTimer()
+    {
+        m_EnemiesPopTimer = m_EnemiesPopTimer
+            .Select((row) => (new {row.Key, Value=(float)row.Value + Time.deltaTime}))
+            .ToDictionary(row=>row.Key,row=>row.Value);
+    }
+    
+    
+    /// <summary>
+    /// 敵のリスポーン時間をチェック
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public bool CheckEnemyRespawnTime(string name)
+    {
+        bool ret = false;
+        Hashtable enemy_list_row = m_EnemyMasterDats.Find(v => v["name"] == name);
+        Debug.Log(m_EnemiesPopTimer[name]);
+        if (m_EnemiesPopTimer[name] >= (float)enemy_list_row["spawn_time"])
+        {
+            ret = true;
+            //時間をリセット
+            m_EnemiesPopTimer[name] = 0;
+        }
+        return ret;
+    }
+    
+    /// <summary>
+    /// 現在出現している敵の個数を確認
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public bool CheckEnemyRespawnNum(string name)
+    {
+        bool ret = false;
+        //出現している敵の数
+        int spawned_enemy_count = m_Enemies.Where(enemy =>(enemy.name == name)).Count();
+        Hashtable enemy_list_row = m_EnemyMasterDats.Find(v => v["name"] == name);
+        if (spawned_enemy_count <= (int)enemy_list_row["max_num"])
+        {
+            ret = true;
+        }
+        return ret;
+    }
+    
+
+    /// <summary>
+    /// 敵出現処理
+    /// </summary>
+    /// <returns></returns>
     IEnumerator SpawnEnemy()
     {
         while (true)
         {
-            yield return new WaitForSeconds(10.0f);
+            yield return new WaitForSeconds(1.0f);
             if (GameManager.m_Phase == GameManager.Phase.Ingame)
             {
-                var ossan_trans = GameObject.Find("OssanSpawnPoint").transform;
-                m_OssanSpawn_Point = ossan_trans.position;
-                m_OssanSpawn_Rotate = ossan_trans.rotation.eulerAngles;
-
-                //時間ごとに最大数まで出現
-                //ランダムで出現する敵を決める
-                //出現
-                if (m_Enemies.Count <= 0)
+                foreach (string enemy_name in m_EnemyMasterDats.Select(v=>v["name"]).ToList())
                 {
-                    var enemy = GameObject.Instantiate(Resources.Load<GameObject>("Ojisan"));
-                    enemy.transform.position = m_OssanSpawn_Point;
-                    enemy.transform.eulerAngles = m_OssanSpawn_Rotate;
-                    m_Enemies.Add(enemy);                
+                    //敵の出現タイマを更新
+                    UpdateEnemyRespawnTimer();
+                    
+                    //出現する敵ごとにリスポーン時間をチェック
+                    if (!CheckEnemyRespawnTime(enemy_name))
+                    {
+                        //出現時間前
+                        continue;
+                    }
+                        
+                    //敵が上限まで出ているかチェック
+                    if (!CheckEnemyRespawnNum(enemy_name))
+                    {
+                        continue;
+                    }
+                    
+                    //敵出現
+                    var enemy = GameObject.Instantiate(Resources.Load<GameObject>(enemy_name));
+                    
+                    m_Enemies.Add(enemy);
                 }
             }
         }
