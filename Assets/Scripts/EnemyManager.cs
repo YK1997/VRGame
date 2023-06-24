@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour
     private List<Hashtable> m_EnemyMasterDats = new List<Hashtable>()
     {
         new Hashtable(){{"name","ojisan"},{"max_num",1},{"spawn_time",5.0f},},
-        new Hashtable(){{"name","g"},{"max_num",6},{"spawn_time",3.0f},},
+        new Hashtable(){{"name","g"},{"max_num",3},{"spawn_time",3.0f},},
     };
     
     /// <summary>
@@ -30,12 +30,15 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-//        StartCoroutine(SpawnEnemy());
+        StartCoroutine(SpawnEnemy());
     }
 
     // Update is called once per frame
     void Update()
-    {  
+    {
+        //敵の出現タイマを更新
+        //TODO:毎アップデートLINQかますと重いかも知れないので、DeltaTime使うか検討
+        UpdateEnemyRespawnTimer();
     }
 
     /// <summary>
@@ -58,7 +61,7 @@ public class EnemyManager : MonoBehaviour
     {
         bool ret = false;
         Hashtable enemy_list_row = m_EnemyMasterDats.Find(v => v["name"] == name);
-        Debug.Log(m_EnemiesPopTimer[name]);
+        Debug.Log("m_EnemiesPopTimer:"+m_EnemiesPopTimer[name]+" spawn_time:"+(float)enemy_list_row["spawn_time"]);
         if (m_EnemiesPopTimer[name] >= (float)enemy_list_row["spawn_time"])
         {
             ret = true;
@@ -76,6 +79,9 @@ public class EnemyManager : MonoBehaviour
     public bool CheckEnemyRespawnNum(string name)
     {
         bool ret = false;
+        //削除されたオブジェクトを除く
+        //TODO:処理はコルーチンの頭に入れるべき
+        m_Enemies = m_Enemies.Where(v => v != null).ToList();
         //出現している敵の数
         int spawned_enemy_count = m_Enemies.Where(enemy =>(enemy.name == name)).Count();
         Hashtable enemy_list_row = m_EnemyMasterDats.Find(v => v["name"] == name);
@@ -99,17 +105,13 @@ public class EnemyManager : MonoBehaviour
             if (GameManager.m_Phase == GameManager.Phase.Ingame)
             {
                 foreach (string enemy_name in m_EnemyMasterDats.Select(v=>v["name"]).ToList())
-                {
-                    //敵の出現タイマを更新
-                    UpdateEnemyRespawnTimer();
-                    
+                {                    
                     //出現する敵ごとにリスポーン時間をチェック
                     if (!CheckEnemyRespawnTime(enemy_name))
                     {
                         //出現時間前
                         continue;
                     }
-                        
                     //敵が上限まで出ているかチェック
                     if (!CheckEnemyRespawnNum(enemy_name))
                     {
