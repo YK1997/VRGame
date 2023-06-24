@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour
     private List<Hashtable> m_EnemyMasterDats = new List<Hashtable>()
     {
         new Hashtable(){{"name","ojisan"},{"max_num",1},{"spawn_time",5.0f},},
-        new Hashtable(){{"name","g"},{"max_num",3},{"spawn_time",3.0f},},
+        new Hashtable(){{"name","g"},{"max_num",3},{"spawn_time",5.0f},},
     };
     
     /// <summary>
@@ -61,7 +61,7 @@ public class EnemyManager : MonoBehaviour
     {
         bool ret = false;
         Hashtable enemy_list_row = m_EnemyMasterDats.Find(v => v["name"] == name);
-        Debug.Log("m_EnemiesPopTimer:"+m_EnemiesPopTimer[name]+" spawn_time:"+(float)enemy_list_row["spawn_time"]);
+//        Debug.Log("m_EnemiesPopTimer:"+m_EnemiesPopTimer[name]+" spawn_time:"+(float)enemy_list_row["spawn_time"]);
         if (m_EnemiesPopTimer[name] >= (float)enemy_list_row["spawn_time"])
         {
             ret = true;
@@ -81,11 +81,15 @@ public class EnemyManager : MonoBehaviour
         bool ret = false;
         //削除されたオブジェクトを除く
         //TODO:処理はコルーチンの頭に入れるべき
+        Debug.Log("m_Enemies length before:"+m_Enemies.Count);
         m_Enemies = m_Enemies.Where(v => v != null).ToList();
+        Debug.Log("m_Enemies length after:"+m_Enemies.Count);
         //出現している敵の数
-        int spawned_enemy_count = m_Enemies.Where(enemy =>(enemy.name == name)).Count();
+        int spawned_enemy_count = m_Enemies.Where(
+            enemy =>(enemy.name.Replace( "(Clone)", "" ) == name)).Count();
         Hashtable enemy_list_row = m_EnemyMasterDats.Find(v => v["name"] == name);
-        if (spawned_enemy_count <= (int)enemy_list_row["max_num"])
+        Debug.Log(" name:"+name +" spawned_enemy_count:"+spawned_enemy_count+" max_num:"+enemy_list_row["max_num"]);
+        if (spawned_enemy_count < (int)enemy_list_row["max_num"])
         {
             ret = true;
         }
