@@ -81,14 +81,11 @@ public class EnemyManager : MonoBehaviour
         bool ret = false;
         //削除されたオブジェクトを除く
         //TODO:処理はコルーチンの頭に入れるべき
-        Debug.Log("m_Enemies length before:"+m_Enemies.Count);
         m_Enemies = m_Enemies.Where(v => v != null).ToList();
-        Debug.Log("m_Enemies length after:"+m_Enemies.Count);
         //出現している敵の数
         int spawned_enemy_count = m_Enemies.Where(
             enemy =>(enemy.name.Replace( "(Clone)", "" ) == name)).Count();
         Hashtable enemy_list_row = m_EnemyMasterDats.Find(v => v["name"] == name);
-        Debug.Log(" name:"+name +" spawned_enemy_count:"+spawned_enemy_count+" max_num:"+enemy_list_row["max_num"]);
         if (spawned_enemy_count < (int)enemy_list_row["max_num"])
         {
             ret = true;
