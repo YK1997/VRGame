@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
                         _self.m_CameraRig.transform.Find("Camera").GetComponent<Camera>(),
                         _self.m_CameraRig.transform.position + (_self.m_CameraRig.transform.forward * 1.0f)
                     );
+                    popup.transform.Translate(0,1.0f,0); 
                     OnClickSwitchScene onclick = popup.AddComponent<OnClickSwitchScene>();
                     onclick.m_Phase = Phase.Ingame;
                     break;
