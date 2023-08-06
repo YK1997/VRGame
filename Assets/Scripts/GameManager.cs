@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
                     _self.m_CameraRig.transform.position = GameObject.Find("/CameraRigPoint").transform.position;
                     Trash trash = GameObject.Find("/room_with_furniture").GetComponent<Trash>();
                     Debug.Log("camera position:" + _self.m_CameraRig.transform.position.y);
-                    trash.TrashSpawn();
+                    trash.InitTrashes();
                     m_Timer = GameObject.Find("/Timer");
                     //とりあえず5分
                     m_Timer.GetComponent<CountDownTimer>().SetSeconds(300);
@@ -148,5 +148,10 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(m_ScenePhaseLists[phase]);            
         }
+    }
+
+    public static GameObject GetCamera()
+    {
+        return _self.m_CameraRig.transform.Find("Camera").gameObject;
     }
 }

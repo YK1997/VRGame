@@ -15,6 +15,12 @@ public class OutlineManager : MonoBehaviour
     void Start()
     {
         m_OutlineBehaviour = gameObject.GetComponent<OutlineBehaviour>();
+        //HMDのカメラを取得する
+        if (m_OutlineBehaviour.Camera == null)
+        {
+            Debug.Log(GameManager.GetCamera().name);
+            m_OutlineBehaviour.Camera = GameManager.GetCamera().GetComponent<Camera>();
+        }
     }
 
     // Update is called once per frame

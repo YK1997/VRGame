@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
@@ -83,10 +84,17 @@ public class MoveObject : MonoBehaviour
             //触れたオブジェクトが動かせるものなら枠を光らせる
             if ((layer) raycast_hit.transform.gameObject.layer == layer.MovableObject)
             {
-                OutlineManager outline_manager = raycast_hit.transform.gameObject.GetComponent<OutlineManager>();
-                if (outline_manager == null)
+                try
                 {
-                    raycast_hit.transform.gameObject.AddComponent<OutlineManager>();
+                    OutlineManager outline_manager = raycast_hit.transform.gameObject.GetComponent<OutlineManager>();
+                    if (outline_manager == null)
+                    {
+                        raycast_hit.transform.gameObject.AddComponent<OutlineManager>();
+                    }
+                }
+                catch (Exception e)
+                {
+                    //OutlineManagerがない場合エラーを吐かないようにする
                 }
                 //1フレームだけアウトラインを設定
                 //OutlineManager.SetOutline();
