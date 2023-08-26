@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8274821487022288764}
   - component: {fileID: 1481958117}
   - component: {fileID: 1481958116}
+  - component: {fileID: 8458303779682305422}
   m_Layer: 9
   m_Name: petbbotle_001
   m_TagString: Untagged
@@ -111,8 +112,22 @@ CapsuleCollider:
   m_GameObject: {fileID: 3670833381158429006}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.03314745
   m_Height: 0.20000948
   m_Direction: 1
   m_Center: {x: -0.000017210841, y: 0.100003876, z: -0.000034416094}
+--- !u!64 &8458303779682305422
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670833381158429006}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1502195194432567058, guid: ef2d37a32e9595546bdcf85143509caf, type: 3}

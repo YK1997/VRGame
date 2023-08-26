@@ -10,6 +10,7 @@ public class MoveObject : MonoBehaviour
     private FixedJoint m_FixedJoint;
     public GameObject m_Camerarig;
     private Ray m_Ray;
+    private Rigidbody m_Rigidbody;// KONAKA:ADD 2023.8.19
     
     private const int RAYCAST_LENGTH = 3;
     
@@ -39,9 +40,19 @@ public class MoveObject : MonoBehaviour
     {
         while (obj != null && Vector3.Distance(obj.transform.position,gameObject.transform.position)>=0.2f)
         {
+            Debug.Log(obj.name);
+            Debug.Log(obj.transform.position);
+            Debug.Log(gameObject.name);
+            Debug.Log(gameObject.transform.position);
+
             obj.transform.position = Vector3.Lerp(
                 obj.transform.position,
-                gameObject.transform.position, 0.2f);
+                gameObject.transform.position, 0.9f);
+            Debug.Log(obj.name);
+            Debug.Log(obj.transform.position);
+            Debug.Log(gameObject.name);
+            Debug.Log(gameObject.transform.position);
+
             yield return new WaitForSeconds(0.01f);
         }
         
@@ -50,7 +61,9 @@ public class MoveObject : MonoBehaviour
             Rigidbody target_rigidbody = obj.GetComponent<Rigidbody>();
             if (target_rigidbody != null)
             {
+                
                 m_FixedJoint.connectedBody = target_rigidbody;
+                
             }            
         }
     }
@@ -96,6 +109,12 @@ public class MoveObject : MonoBehaviour
             //Debug.Log(raycast_hit.transform.gameObject.name);
             if (grabAction.GetStateDown(handType))
             {
+                Debug.Log("GetStateDown");
+//                Debug.Log(raycast_hit.transform.gameObject.name);
+//                Debug.Log(raycast_hit.transform.gameObject.transform.position);
+//                Debug.Log(gameObject.name);
+//                Debug.Log(gameObject.transform.position);
+//                Debug.Log(raycast_hit.transform.gameObject.layer);  // KONAKA
                 switch ((layer)raycast_hit.transform.gameObject.layer)
                 {
                     case layer.MovableObject:
@@ -110,12 +129,20 @@ public class MoveObject : MonoBehaviour
             // ボタン離したとき
             if (grabAction.GetStateUp(handType))
             {
-                switch ((layer)raycast_hit.transform.gameObject.layer)
-                {
-                    case layer.MovableObject:
+                Debug.Log("GetStateUp");
+//                Debug.Log(raycast_hit.transform.gameObject.name);
+//                Debug.Log(raycast_hit.transform.gameObject.transform.position);
+//                Debug.Log(gameObject.name);
+//                Debug.Log(gameObject.transform.position);
+//                Debug.Log(raycast_hit.transform.gameObject.layer);  // KONAKA
+//                switch ((layer)raycast_hit.transform.gameObject.layer)
+//                {
+//                    case layer.MovableObject:
+//                        
                         ReleaseObject();
-                        break;
-                }
+//                        
+//                        break;
+//                }
             }
             
         }
@@ -128,10 +155,10 @@ public class MoveObject : MonoBehaviour
 
     void ReleaseObject()
     {
-        if (m_FixedJoint.connectedBody != null)
-        {
+//        if (m_FixedJoint.connectedBody != null)
+//        {
             m_FixedJoint.connectedBody = null;
-        }
+//        }
     }
     /// <summary>
     /// ワープします。
@@ -144,10 +171,12 @@ public class MoveObject : MonoBehaviour
         RaycastHit hit,
         GameObject warp_object){
         //物を持っていたら移動させない
+        
         if (m_FixedJoint.connectedBody != null)
         {
             return;
         }
+        
         warp_object.transform.position = new Vector3(
             hit.point.x,
             warp_object.transform.position.y,
@@ -160,6 +189,7 @@ public class MoveObject : MonoBehaviour
         if (m_TurnRight.GetLastStateDown(handType))
         {
             m_Camerarig.transform.Rotate(0,45,0);
+            
         }
         if (m_TurnLeft.GetLastStateDown(handType))
         {

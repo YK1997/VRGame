@@ -537,9 +537,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3286296788588161814, guid: 2308e4e76974b99449fb930d43c034aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3286296788635891600, guid: 2308e4e76974b99449fb930d43c034aa, type: 3}
       propertyPath: m_Name
       value: room_with_furniture
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286296789225271629, guid: 2308e4e76974b99449fb930d43c034aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286296789291073957, guid: 2308e4e76974b99449fb930d43c034aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286296789839715087, guid: 2308e4e76974b99449fb930d43c034aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286296790153794418, guid: 2308e4e76974b99449fb930d43c034aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286296790314060924, guid: 2308e4e76974b99449fb930d43c034aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934943160029039299, guid: 2308e4e76974b99449fb930d43c034aa, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4985966257894119983, guid: 2308e4e76974b99449fb930d43c034aa, type: 3}
       propertyPath: m_IsActive

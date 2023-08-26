@@ -511,7 +511,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -529,8 +529,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.28773582, b: 0.28773582, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.28773582, b: 0.28773582, a: 0.43137255}
+      key1: {r: 1, g: 0.28773582, b: 0.28773582, a: 0.43137255}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -577,8 +577,8 @@ FixedJoint:
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_MassScale: 0.1
+  m_ConnectedMassScale: 0.1
 --- !u!114 &3920580703149848224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,6 +596,12 @@ MonoBehaviour:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
   handType: 2
+  m_TurnLeft:
+    actionPath: 
+    needsReinit: 0
+  m_TurnRight:
+    actionPath: 
+    needsReinit: 0
 --- !u!1 &3920580704024762798
 GameObject:
   m_ObjectHideFlags: 0
