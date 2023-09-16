@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     public static GameManager _self;
     public static Phase m_Phase { get; private set; }
     public GameObject m_CameraRig;
+    public GameObject m_Camera;
     public GameObject m_Timer;
+    private const int GAME_TIMER_SECOND = 60;
 
     public enum Phase
     {
@@ -33,6 +35,16 @@ public class GameManager : MonoBehaviour
     };
     
     
+    
+    Vector3 CorrectCameraPosition()
+    {
+        return new Vector3(
+            m_CameraRig.transform.position.x - m_Camera.transform.localPosition.x,
+            m_Camera.transform.position.y,
+            m_CameraRig.transform.position.z - m_Camera.transform.localPosition.z
+        );
+    }
+    
     /// <summary>
     /// 初期化
     /// </summary>
@@ -41,6 +53,8 @@ public class GameManager : MonoBehaviour
         _self = this;
         DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(this.m_CameraRig);
+//        DontDestroyOnLoad(this.m_Camera);
+        m_Camera = m_CameraRig.transform.Find("Camera").gameObject;
         SetOnSceneLoaded();
         SwitchPhase(Phase.Title);
     }
@@ -102,9 +116,19 @@ public class GameManager : MonoBehaviour
                         _self.m_CameraRig.transform.Find("Camera").GetComponent<Camera>(),
                         _self.m_CameraRig.transform.position + (_self.m_CameraRig.transform.forward * 1.0f)
                     );
-                    popup.transform.Translate(0,1.0f,0); 
+                    popup.transform.Translate(0,1,0); 
                     OnClickSwitchScene onclick = popup.AddComponent<OnClickSwitchScene>();
                     onclick.m_Phase = Phase.Ingame;
+                    
+                    //タイトル
+                    GameObject tutorial_popup = PopupManager.MakePopup(
+                        "TutorialPopup",
+                        _self.m_CameraRig ,
+                        _self.m_CameraRig.transform.Find("Camera").GetComponent<Camera>(),
+                        _self.m_CameraRig.transform.position + (_self.m_CameraRig.transform.forward * 1.0f)
+                    );
+                    tutorial_popup.transform.Translate(-2.015f,1.14f,0); 
+
                     break;
                 case Phase.Ingame:
                     Debug.Log("is here");
@@ -116,7 +140,7 @@ public class GameManager : MonoBehaviour
                     trash.InitTrashes();
                     m_Timer = GameObject.Find("/Timer");
                     //とりあえず5分
-                    m_Timer.GetComponent<CountDownTimer>().SetSeconds(300);
+                    m_Timer.GetComponent<CountDownTimer>().SetSeconds(GAME_TIMER_SECOND);
                     break;
                 case Phase.Result:
                     //タイトル
@@ -124,7 +148,8 @@ public class GameManager : MonoBehaviour
                         "ResultPopup",
                         _self.m_CameraRig,
                         _self.m_CameraRig.transform.Find("Camera").GetComponent<Camera>(),
-                        _self.m_CameraRig.transform.Find("Camera").transform.position + (_self.m_CameraRig.transform.forward * 1.0f)
+                        _self.m_CameraRig.transform.Find("Camera").transform.position + 
+                        (_self.m_CameraRig.transform.forward * 1.0f)
                     );
                     float score = ScoreManager.GetScore();
                     result_popup.GetComponentInChildren<Text>().text = $@"

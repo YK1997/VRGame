@@ -14,7 +14,7 @@ public class EnemyManager : MonoBehaviour
     private Vector3 m_OssanSpawn_Rotate = new Vector3();
     private List<Hashtable> m_EnemyMasterDats = new List<Hashtable>()
     {
-        new Hashtable(){{"name","ojisan"},{"max_num",1},{"spawn_time",5.0f},},
+        new Hashtable(){{"name","ojisan"},{"max_num",1},{"spawn_time",15.0f},},
         new Hashtable(){{"name","g"},{"max_num",3},{"spawn_time",5.0f},},
     };
     

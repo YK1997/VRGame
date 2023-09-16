@@ -10,6 +10,7 @@ public class MoveObject : MonoBehaviour
     private LineRenderer m_Line;
     private FixedJoint m_FixedJoint;
     public GameObject m_Camerarig;
+    public GameObject m_Camera;
     private Ray m_Ray;
     private Rigidbody m_Rigidbody;// KONAKA:ADD 2023.8.19
     
@@ -35,6 +36,7 @@ public class MoveObject : MonoBehaviour
     {
         m_Line = GetComponent<LineRenderer>();
         m_FixedJoint = GetComponent<FixedJoint>();
+        m_Camera = m_Camerarig.transform.Find("Camera").gameObject;
     }
     
     IEnumerator PickUp(GameObject obj)
@@ -64,7 +66,6 @@ public class MoveObject : MonoBehaviour
             {
                 
                 m_FixedJoint.connectedBody = target_rigidbody;
-                
             }            
         }
     }
@@ -78,6 +79,7 @@ public class MoveObject : MonoBehaviour
 
         m_Ray = new Ray(transform.position,transform.forward);
         RaycastHit raycast_hit;
+        Debug.DrawRay(transform.position,transform.forward*RAYCAST_LENGTH, Color.green, 0.1f, false);
         if (Physics.Raycast(m_Ray,out raycast_hit,RAYCAST_LENGTH))
         {
             //----------------------------------------------------------
@@ -129,7 +131,10 @@ public class MoveObject : MonoBehaviour
                         ObjectMove(raycast_hit);
                         break;
                     case layer.Floor:
-                        WarpToRaycastHit(raycast_hit,m_Camerarig);
+                        WarpToRaycastHit(
+                            raycast_hit,
+                            m_Camerarig,
+                            m_Camera.transform.localPosition);
                         break;
                 }
             }
@@ -154,6 +159,8 @@ public class MoveObject : MonoBehaviour
             }
             
         }
+        //左右回転
+        Turn();
     }
     
     void ObjectMove(RaycastHit raycast_hit)
@@ -177,18 +184,19 @@ public class MoveObject : MonoBehaviour
     /// <param name="warp_object"></param>
     void WarpToRaycastHit(
         RaycastHit hit,
-        GameObject warp_object){
+        GameObject warp_object,
+        Vector3 correct_position)
+    {
         //物を持っていたら移動させない
         
         if (m_FixedJoint.connectedBody != null)
         {
             return;
         }
-        
         warp_object.transform.position = new Vector3(
-            hit.point.x,
+            hit.point.x - correct_position.x,
             warp_object.transform.position.y,
-            hit.point.z
+            hit.point.z - correct_position.z
         );
     }
     void Turn()
@@ -196,12 +204,12 @@ public class MoveObject : MonoBehaviour
         //左右回転
         if (m_TurnRight.GetLastStateDown(handType))
         {
-            m_Camerarig.transform.Rotate(0,45,0);
+            m_Camera.transform.Rotate(0,45,0);
             
         }
         if (m_TurnLeft.GetLastStateDown(handType))
         {
-            m_Camerarig.transform.Rotate(0,-45,0);
+            m_Camera.transform.Rotate(0,-45,0);
         }
     }
 }
