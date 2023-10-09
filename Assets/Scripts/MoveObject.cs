@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using JetBrains.Annotations;
 using UnityEngine;
 using Valve.VR;
 
@@ -18,11 +19,13 @@ public class MoveObject : MonoBehaviour
     
     public SteamVR_Action_Boolean grabAction;
     public SteamVR_Input_Sources handType;
-    
     public SteamVR_Action_Boolean m_TurnLeft;
     public SteamVR_Action_Boolean m_TurnRight;
+    public SteamVR_Action_Boolean m_SideButton;
+
+    public WarpPortalManager m_WarpPortalManager; 
 //      
-    enum layer
+    public enum layer
     {
         Default = 0,
         Water = 4,
@@ -37,24 +40,24 @@ public class MoveObject : MonoBehaviour
         m_Line = GetComponent<LineRenderer>();
         m_FixedJoint = GetComponent<FixedJoint>();
         m_Camera = m_Camerarig.transform.Find("Camera").gameObject;
+        m_WarpPortalManager = GetComponent<WarpPortalManager>();
     }
     
     IEnumerator PickUp(GameObject obj)
     {
         while (obj != null && Vector3.Distance(obj.transform.position,gameObject.transform.position)>=0.2f)
         {
-            Debug.Log(obj.name);
-            Debug.Log(obj.transform.position);
-            Debug.Log(gameObject.name);
-            Debug.Log(gameObject.transform.position);
-
+//            Debug.Log(obj.name);
+//            Debug.Log(obj.transform.position);
+//            Debug.Log(gameObject.name);
+//            Debug.Log(gameObject.transform.position);
             obj.transform.position = Vector3.Lerp(
                 obj.transform.position,
                 gameObject.transform.position, 0.9f);
-            Debug.Log(obj.name);
-            Debug.Log(obj.transform.position);
-            Debug.Log(gameObject.name);
-            Debug.Log(gameObject.transform.position);
+//            Debug.Log(obj.name);
+//            Debug.Log(obj.transform.position);
+//            Debug.Log(gameObject.name);
+//            Debug.Log(gameObject.transform.position);
 
             yield return new WaitForSeconds(0.01f);
         }
@@ -73,91 +76,102 @@ public class MoveObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_Line.SetPosition(0,transform.position);
-        //Debug.Log(transform.forward);
-        m_Line.SetPosition(1,transform.position+(transform.forward*RAYCAST_LENGTH));
-
-        m_Ray = new Ray(transform.position,transform.forward);
-        RaycastHit raycast_hit;
-        Debug.DrawRay(transform.position,transform.forward*RAYCAST_LENGTH, Color.green, 0.1f, false);
-        if (Physics.Raycast(m_Ray,out raycast_hit,RAYCAST_LENGTH))
+        //中指のボタンを押しっぱなしにした場合はワープポータルを表示
+        if (m_SideButton.GetState(handType))
         {
-            //----------------------------------------------------------
-            //竹田追加 ボタン押下処理を追加
-            //----------------------------------------------------------
-            if (grabAction.GetLastStateDown(handType))
-            {
-                //対象のオブジェクトでクリック扱いにする。
-                //レシーバがなくてもエラー表示にさせない
-                raycast_hit.transform.gameObject.SendMessage("OnClick",
-                    new Collision(),SendMessageOptions.DontRequireReceiver);
-            }
-            //----------------------------------------------------------
-            //竹田追加 ボタン押下処理を追加
-            //----------------------------------------------------------
+            m_WarpPortalManager.DrawCurveRay(
+                gameObject,
+                grabAction,
+                handType,
+                m_Camerarig
+            );
+            m_Line.enabled = false;
+        }
+        else
+        {
+            m_Line.enabled = true;
+            m_WarpPortalManager.EraceCurveRay();
             
-            //触れたオブジェクトが動かせるものなら枠を光らせる
-            if ((layer) raycast_hit.transform.gameObject.layer == layer.MovableObject)
+            m_Line.SetPosition(0,transform.position);
+            //Debug.Log(transform.forward);
+            m_Line.SetPosition(1,transform.position+(transform.forward*RAYCAST_LENGTH));
+
+            m_Ray = new Ray(transform.position,transform.forward);
+            RaycastHit raycast_hit;
+            Debug.DrawRay(transform.position,transform.forward*RAYCAST_LENGTH, Color.green, 0.1f, false);
+            if (Physics.Raycast(m_Ray,out raycast_hit,RAYCAST_LENGTH))
             {
-                try
+                //----------------------------------------------------------
+                //竹田追加 ボタン押下処理を追加
+                //----------------------------------------------------------
+                if (grabAction.GetLastStateDown(handType))
                 {
-                    OutlineManager outline_manager = raycast_hit.transform.gameObject.GetComponent<OutlineManager>();
-                    if (outline_manager == null)
+                    //対象のオブジェクトでクリック扱いにする。
+                    //レシーバがなくてもエラー表示にさせない
+                    raycast_hit.transform.gameObject.SendMessage("OnClick",
+                        new Collision(),SendMessageOptions.DontRequireReceiver);
+                }
+                //----------------------------------------------------------
+                //竹田追加 ボタン押下処理を追加
+                //----------------------------------------------------------
+                
+                //触れたオブジェクトが動かせるものなら枠を光らせる
+                if ((layer) raycast_hit.transform.gameObject.layer == layer.MovableObject)
+                {
+                    try
                     {
-                        raycast_hit.transform.gameObject.AddComponent<OutlineManager>();
+                        OutlineManager outline_manager = raycast_hit.transform.gameObject.GetComponent<OutlineManager>();
+                        if (outline_manager == null)
+                        {
+                            raycast_hit.transform.gameObject.AddComponent<OutlineManager>();
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        //OutlineManagerがない場合エラーを吐かないようにする
+                    }
+                    //1フレームだけアウトラインを設定
+                    //OutlineManager.SetOutline();
+                }
+    
+                // ボタン押されたとき
+                //Debug.Log(raycast_hit.transform.gameObject.name);
+                if (grabAction.GetStateDown(handType))
+                {
+                    Debug.Log("GetStateDown");
+    //                Debug.Log(raycast_hit.transform.gameObject.name);
+    //                Debug.Log(raycast_hit.transform.gameObject.transform.position);
+    //                Debug.Log(gameObject.name);
+    //                Debug.Log(gameObject.transform.position);
+    //                Debug.Log(raycast_hit.transform.gameObject.layer);  // KONAKA
+                    switch ((layer)raycast_hit.transform.gameObject.layer)
+                    {
+                        case layer.MovableObject:
+                            ObjectMove(raycast_hit);
+                            break;
                     }
                 }
-                catch (Exception e)
+    
+                // ボタン離したとき
+                if (grabAction.GetStateUp(handType))
                 {
-                    //OutlineManagerがない場合エラーを吐かないようにする
-                }
-                //1フレームだけアウトラインを設定
-                //OutlineManager.SetOutline();
-            }
-
-            // ボタン押されたとき
-            //Debug.Log(raycast_hit.transform.gameObject.name);
-            if (grabAction.GetStateDown(handType))
-            {
-                Debug.Log("GetStateDown");
-//                Debug.Log(raycast_hit.transform.gameObject.name);
-//                Debug.Log(raycast_hit.transform.gameObject.transform.position);
-//                Debug.Log(gameObject.name);
-//                Debug.Log(gameObject.transform.position);
-//                Debug.Log(raycast_hit.transform.gameObject.layer);  // KONAKA
-                switch ((layer)raycast_hit.transform.gameObject.layer)
-                {
-                    case layer.MovableObject:
-                        ObjectMove(raycast_hit);
-                        break;
-                    case layer.Floor:
-                        WarpToRaycastHit(
-                            raycast_hit,
-                            m_Camerarig,
-                            m_Camera.transform.localPosition);
-                        break;
+                    Debug.Log("GetStateUp");
+                    
+    //                Debug.Log(raycast_hit.transform.gameObject.name);
+    //                Debug.Log(raycast_hit.transform.gameObject.transform.position);
+    //                Debug.Log(gameObject.name);
+    //                Debug.Log(gameObject.transform.position);
+    //                Debug.Log(raycast_hit.transform.gameObject.layer);  // KONAKA
+    //                switch ((layer)raycast_hit.transform.gameObject.layer)
+    //                {
+    //                    case layer.MovableObject:
+    //                        
+                            ReleaseObject();
+    //                        
+    //                        break;
+    //                }
                 }
             }
-
-            // ボタン離したとき
-            if (grabAction.GetStateUp(handType))
-            {
-                Debug.Log("GetStateUp");
-//                Debug.Log(raycast_hit.transform.gameObject.name);
-//                Debug.Log(raycast_hit.transform.gameObject.transform.position);
-//                Debug.Log(gameObject.name);
-//                Debug.Log(gameObject.transform.position);
-//                Debug.Log(raycast_hit.transform.gameObject.layer);  // KONAKA
-//                switch ((layer)raycast_hit.transform.gameObject.layer)
-//                {
-//                    case layer.MovableObject:
-//                        
-                        ReleaseObject();
-//                        
-//                        break;
-//                }
-            }
-            
         }
         //左右回転
         Turn();

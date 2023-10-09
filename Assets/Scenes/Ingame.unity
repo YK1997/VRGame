@@ -545,6 +545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: room_with_furniture
       objectReference: {fileID: 0}
+    - target: {fileID: 3286296788635891600, guid: 2308e4e76974b99449fb930d43c034aa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3286296789225271629, guid: 2308e4e76974b99449fb930d43c034aa, type: 3}
       propertyPath: m_IsActive
       value: 1
