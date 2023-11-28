@@ -37,7 +37,7 @@ public class PopupManager : MonoBehaviour
     void Start()
     {
         m_Self = this;
-        Debug.Log(m_Self);
+//        Debug.Log(m_Self);
     }
 
     void Update()

@@ -131,12 +131,12 @@ public class GameManager : MonoBehaviour
 
                     break;
                 case Phase.Ingame:
-                    Debug.Log("is here");
-                    Debug.Log(GameObject.Find("/CameraRigPoint"));
+//                    Debug.Log("is here");
+//                    Debug.Log(GameObject.Find("/CameraRigPoint"));
                     //部屋を散らかす
                     _self.m_CameraRig.transform.position = GameObject.Find("/CameraRigPoint").transform.position;
                     Trash trash = GameObject.Find("/room_with_furniture").GetComponent<Trash>();
-                    Debug.Log("camera position:" + _self.m_CameraRig.transform.position.y);
+//                    Debug.Log("camera position:" + _self.m_CameraRig.transform.position.y);
                     trash.InitTrashes();
                     m_Timer = GameObject.Find("/Timer");
                     //とりあえず5分
