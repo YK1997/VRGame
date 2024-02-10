@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject m_CameraRig;
     public GameObject m_Camera;
     public GameObject m_Timer;
-    private const int GAME_TIMER_SECOND = 60;
+    private const int GAME_TIMER_SECOND = 600;
 
     public enum Phase
     {
@@ -135,7 +135,8 @@ public class GameManager : MonoBehaviour
 //                    Debug.Log(GameObject.Find("/CameraRigPoint"));
                     //部屋を散らかす
                     _self.m_CameraRig.transform.position = GameObject.Find("/CameraRigPoint").transform.position;
-                    Trash trash = GameObject.Find("/room_with_furniture").GetComponent<Trash>();
+                    // Trash trash = GetComponentInChildren<Trash>();
+                    Trash trash = GameObject.Find("/Class").GetComponent<Trash>();
 //                    Debug.Log("camera position:" + _self.m_CameraRig.transform.position.y);
                     trash.InitTrashes();
                     m_Timer = GameObject.Find("/Timer");
@@ -162,6 +163,9 @@ public class GameManager : MonoBehaviour
                     EnemyManager.ResetEnemyList();
                     OnClickSwitchScene result_onclick = result_popup.AddComponent<OnClickSwitchScene>();
                     result_onclick.m_Phase = Phase.Title;
+                    
+                    //終わった時のキンコンカンコン
+                    // GameObject.Find("Speaker").GetComponent<AudioSource>().Play();
                     break;
             }
         };

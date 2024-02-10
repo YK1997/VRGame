@@ -138,7 +138,7 @@ public class MoveObject : MonoBehaviour
                 //Debug.Log(raycast_hit.transform.gameObject.name);
                 if (grabAction.GetStateDown(handType))
                 {
-                    Debug.Log("GetStateDown");
+                    // Debug.Log("GetStateDown");
     //                Debug.Log(raycast_hit.transform.gameObject.name);
     //                Debug.Log(raycast_hit.transform.gameObject.transform.position);
     //                Debug.Log(gameObject.name);
@@ -155,7 +155,7 @@ public class MoveObject : MonoBehaviour
                 // ボタン離したとき
                 if (grabAction.GetStateUp(handType))
                 {
-                    Debug.Log("GetStateUp");
+                    // Debug.Log("GetStateUp");
                     
     //                Debug.Log(raycast_hit.transform.gameObject.name);
     //                Debug.Log(raycast_hit.transform.gameObject.transform.position);
