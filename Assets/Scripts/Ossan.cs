@@ -12,7 +12,7 @@ public class Ossan : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        m_Trash = GameObject.Find("/room_with_furniture").GetComponent<Trash>();
+        m_Trash = GameObject.Find("/Class").GetComponent<Trash>();
         m_EnemyManager = GameObject.Find("/GameManagerObject").GetComponent<EnemyManager>();
         StartCoroutine(SpawnTrash());
         //おっさんの出現位置を変更

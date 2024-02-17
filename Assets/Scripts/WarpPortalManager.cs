@@ -36,7 +36,7 @@ public class WarpPortalManager : MonoBehaviour
 
     public void EraceCurveRay()
     {
-        Debug.Log("ERASE!!!!!!");
+        // Debug.Log("ERASE!!!!!!");
         m_LineObject.SetActive(false);
         m_Portal.SetActive(false);
     }
