@@ -13,7 +13,10 @@ public class MoveObject : MonoBehaviour
     public GameObject m_Camerarig;
     public GameObject m_Camera;
     private Ray m_Ray;
-    private Rigidbody m_Rigidbody;// KONAKA:ADD 2023.8.19
+    //private Rigidbody m_Rigidbody;// KONAKA:ADD 2023.8.19
+    //private Vector3 startPos; // KONAKA:ADD 2023.12.23
+    //private Vector3 endPos; // KONAKA:ADD 2023.12.23
+    //private Vector3 pos; // KONAKA:ADD 2023.12.23
     
     private const int RAYCAST_LENGTH = 3;
     
@@ -184,9 +187,14 @@ public class MoveObject : MonoBehaviour
 
     void ReleaseObject()
     {
+        /* fixedyointを付けたまま放物線を描きだし、どこかのタイミングでnullにして落下させる */
+        //startPos = new Vector3(random.range(-350f,350f),-1080/2 - 100);
+        //endPos = Vector3.zero;
+        //pos = Vector3.lerp(startPos,endPos,m_Timer / Duration);
+        StartThrow(m_FixedJoint.gameObject,gameObject.transform.position.y, gameObject.transform.position,gameObject.transform.position,0.5f);
 //        if (m_FixedJoint.connectedBody != null)
 //        {
-            m_FixedJoint.connectedBody = null;
+        m_FixedJoint.connectedBody = null;
 //        }
     }
     /// <summary>
@@ -226,4 +234,36 @@ public class MoveObject : MonoBehaviour
             m_Camera.transform.Rotate(0,-45,0);
         }
     }
+    /* ADD:KONAKA 2024.1.10 */
+    
+    public void StartThrow(GameObject target,float height, Vector3 start,Vector3 end,float duration)
+    {
+        // 中点を求める
+        Vector3 half = end - start * 0.50f + start;
+        half.y += Vector3.up.y + height;
+    
+        StartCoroutine(LerpThrow(target, start, half, end, duration));
+    }
+    IEnumerator LerpThrow(GameObject target, Vector3 start, Vector3 half, Vector3 end, float duration)
+    {
+        float startTime = Time.timeSinceLevelLoad;
+        float rate = 0f;
+        while(true) {
+            if(rate >= 1.0f)
+                yield break;
+    
+            float diff = Time.timeSinceLevelLoad - startTime;
+            rate = diff / (duration / 60f);
+            target.transform.position = CalcLerpPoint(start, half, end, rate);
+    
+            yield return null;
+        }
+    }
+    Vector3 CalcLerpPoint(Vector3 p0, Vector3 p1, Vector3 p2, float t) {
+        var a = Vector3.Lerp(p0, p1, t);
+        var b = Vector3.Lerp(p1, p2, t);
+        return Vector3.Lerp(a, b, t);
+    }
+    
+    /* ADD:END*/
 }
